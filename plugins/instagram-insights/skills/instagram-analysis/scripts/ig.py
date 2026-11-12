@@ -14,8 +14,15 @@ Standard library only, plus ffmpeg/ffprobe on PATH for `analyze`.
     ig.py analyze                    # cuts, hook, loudness, frames -> instagram-data/analysis/
     ig.py report --by views          # what the top videos do differently -> instagram-data/report.md
 
-Needs an Instagram Business or Creator account and a token from the Instagram API with
-Instagram Login (scopes instagram_business_basic + instagram_business_manage_insights).
+Manual mode, no token (your own reel files plus numbers from Insights screenshots or a CSV):
+
+    ig.py manual init --videos ~/Reels            # metrics.csv to fill in, one row per video
+    ig.py manual import --videos ~/Reels --metrics instagram-data/metrics.csv
+    ig.py analyze && ig.py report --by views
+
+API mode needs an Instagram Business or Creator account and a token from "API setup with Instagram
+login" (scopes instagram_business_basic + instagram_business_manage_insights). Facebook-issued tokens
+(they start with EAA) are not supported, and Unified login is untested.
 Token: INSTAGRAM_ACCESS_TOKEN in the environment or in a .env file in this directory or a parent.
 Data: ./instagram-data unless INSTAGRAM_DATA_DIR or --data says otherwise.
 """
@@ -23,6 +30,7 @@ Data: ./instagram-data unless INSTAGRAM_DATA_DIR or --data says otherwise.
 from __future__ import annotations
 
 import argparse
+import csv
 import datetime as dt
 import http.client
 import json
@@ -77,16 +85,19 @@ def read_env_value(path: Path, key: str) -> str | None:
 
 
 def get_token() -> tuple[str, Path | None]:
-    tok = os.environ.get("INSTAGRAM_ACCESS_TOKEN")
-    if tok:
-        return tok, None
-    env = find_env_file()
-    if env:
-        tok = read_env_value(env, "INSTAGRAM_ACCESS_TOKEN")
-        if tok:
-            return tok, env
-    sys.exit("No INSTAGRAM_ACCESS_TOKEN. Set it in the environment or in .env "
-             "(see the plugin README: Setup).")
+    tok, env = os.environ.get("INSTAGRAM_ACCESS_TOKEN"), None
+    if not tok:
+        env = find_env_file()
+        tok = read_env_value(env, "INSTAGRAM_ACCESS_TOKEN") if env else None
+    if not tok:
+        sys.exit("No INSTAGRAM_ACCESS_TOKEN. Set it in the environment or in .env (README: API mode), "
+                 "or use manual mode, which needs no token (README: Manual mode).")
+    if tok.startswith("EAA"):
+        sys.exit("This token starts with EAA, so it was issued by Facebook (Facebook Login, or Unified login "
+                 "signed in through Facebook). "
+                 "API mode only supports tokens from 'API setup with Instagram login' (they start with IG). "
+                 "Use manual mode instead (README: Manual mode).")
+    return tok, env
 
 
 def write_env_value(path: Path, key: str, value: str) -> None:
@@ -153,11 +164,15 @@ def data_dir(args) -> Path:
     return d
 
 
-def load_media(d: Path) -> list[dict]:
+def load_doc(d: Path) -> dict:
     f = d / "media.json"
     if not f.exists():
-        sys.exit(f"No {f}. Run `fetch` first.")
-    return json.loads(f.read_text())["media"]
+        sys.exit(f"No {f}. Run `fetch` (API mode) or `manual import` (manual mode) first.")
+    return json.loads(f.read_text())
+
+
+def load_media(d: Path) -> list[dict]:
+    return load_doc(d)["media"]
 
 
 def select(media: list[dict], ids: list[str] | None) -> list[dict]:
@@ -314,8 +329,10 @@ def _fmt(v) -> str:
 # --------------------------------------------------------------------------- download
 
 def cmd_download(args) -> int:
-    token, _ = get_token()
     d = data_dir(args)
+    if load_doc(d).get("mode") == "manual":
+        sys.exit("Manual mode uses your own video files; there is nothing to download. Run `analyze`.")
+    token, _ = get_token()
     vids = d / "videos"
     vids.mkdir(exist_ok=True)
     for m in select(load_media(d), args.ids):
@@ -438,18 +455,23 @@ def cmd_analyze(args) -> int:
     media = select(load_media(d), args.ids)
     for m in media:
         vid = m["id"]
-        src = d / "videos" / f"{vid}.mp4"
+        manual = "file" in m
+        src = Path(m["file"]) if m.get("file") else d / "videos" / f"{vid}.mp4"
         dest = out_dir / f"{vid}.json"
         if not src.exists():
-            print(f"skip {vid}: not downloaded", file=sys.stderr)
+            why = "no video file linked to this row" if manual else "not downloaded"
+            print(f"skip {vid}: {why}", file=sys.stderr)
             continue
+        stamp = {"source_file": str(src.resolve()), "source_size": src.stat().st_size}
         if dest.exists() and not args.force:
-            print(f"have {dest.name}")
-            continue
+            old = json.loads(dest.read_text())
+            if all(old.get(k) == v for k, v in stamp.items()) or not manual:
+                print(f"have {dest.name}")
+                continue
         p = probe(src)
         dur = p["duration_s"] or 0.0
         cuts = [t for t in scene_cuts(src, args.scene_threshold) if t > 0.1]
-        a = {"id": vid, **p,
+        a = {"id": vid, **stamp, **p,
              "cuts": len(cuts), "cut_times": cuts,
              "first_cut_s": cuts[0] if cuts else None,
              "cuts_per_10s": round(len(cuts) / dur * 10, 2) if dur else None,
@@ -497,95 +519,482 @@ FEATURES = [
 ]
 
 
+CORE_METRICS = ["views", "reach", "likes", "comments", "saved", "shares", "avg_watch_s"]
+ANALYSIS_KEYS = {"duration_s", "cuts_per_10s", "first_cut_s", "avg_shot_s", "audio_starts_s", "loudness_lufs"}
+
+
+def _num(v) -> bool:
+    return isinstance(v, (int, float)) and not isinstance(v, bool)
+
+
 def build_rows(d: Path, tz_offset: float) -> list[dict]:
+    """One row per video. A value is only ever present if Instagram or the user supplied it, or it was
+    measured from the file or computed from supplied values; nothing is filled in."""
     rows = []
     for m in load_media(d):
         ins = m.get("insights", {})
-        r = {"id": m["id"], "permalink": m.get("permalink"), "posted": m["timestamp"][:10],
-             "type": m.get("media_product_type"), "caption": m.get("caption_first_line", ""),
-             "likes": m.get("likes"), "comments": m.get("comments"),
-             "caption_words": m.get("caption_words"), "hashtags": m.get("hashtags"), **ins}
-        ts = dt.datetime.strptime(m["timestamp"], "%Y-%m-%dT%H:%M:%S%z") + dt.timedelta(hours=tz_offset)
-        r["hour_local"], r["weekday"] = ts.hour, ts.strftime("%a")
+        manual = "file" in m
+        r = {"id": m["id"], "permalink": m.get("permalink"), "type": m.get("media_product_type"),
+             "file_name": m.get("file_name"), "has_video": bool(m.get("file")) if manual else None,
+             "caption": m.get("caption_first_line", ""), "likes": m.get("likes"), "comments": m.get("comments"),
+             "caption_words": m.get("caption_words"), "hashtags": m.get("hashtags"),
+             "approx": m.get("approx", []), "metric_source": m.get("metric_source"), **ins}
+        r["posted"], r["weekday"], r["hour_local"] = None, None, None
+        if m.get("timestamp"):
+            if m.get("time_is_local"):
+                ts = dt.datetime.fromisoformat(m["timestamp"])
+            else:
+                ts = dt.datetime.strptime(m["timestamp"], "%Y-%m-%dT%H:%M:%S%z") + dt.timedelta(hours=tz_offset)
+            r["posted"], r["weekday"] = ts.date().isoformat(), ts.strftime("%a")
+            if m.get("has_time", True):
+                r["hour_local"] = ts.hour
         af = d / "analysis" / f"{m['id']}.json"
-        if af.exists():
+        if af.exists() and (not manual or m.get("file")):
             r.update({k: v for k, v in json.loads(af.read_text()).items() if k not in ("id", "cut_times")})
-        reach = ins.get("reach") or 0
-        if reach:
+        reach = ins.get("reach")
+        if _num(reach) and reach > 0:
             inter = ins.get("total_interactions")
-            if inter is None:
-                inter = sum(x or 0 for x in (r["likes"], r["comments"], ins.get("saved"), ins.get("shares")))
-            r["engagement_rate"] = round(inter / reach, 4)
-            if ins.get("saved") is not None:
+            parts = (r["likes"], r["comments"], ins.get("saved"), ins.get("shares"))
+            if not _num(inter) and all(_num(x) for x in parts):
+                inter = sum(parts)  # only when every part was supplied
+            if _num(inter):
+                r["engagement_rate"] = round(inter / reach, 4)
+            if _num(ins.get("saved")):
                 r["save_rate"] = round(ins["saved"] / reach, 4)
-            if ins.get("shares") is not None:
+            if _num(ins.get("shares")):
                 r["share_rate"] = round(ins["shares"] / reach, 4)
-        if r.get("avg_watch_s") and r.get("duration_s"):
+        if _num(r.get("avg_watch_s")) and _num(r.get("duration_s")) and r["duration_s"] > 0:
             r["watch_ratio"] = round(r["avg_watch_s"] / r["duration_s"], 3)
         rows.append(r)
     return rows
 
 
+DERIVED = {"engagement_rate": ("reach", "likes, comments, saves and shares, or interactions"),
+           "save_rate": ("reach", "saves"), "share_rate": ("reach", "shares"),
+           "watch_ratio": ("avg_watch_s", "a video file")}
+
+
+def _cell(r: dict, key: str, manual: bool) -> str:
+    v = r.get(key)
+    if v is not None:
+        s = _fmt(v)
+        return f"≈{s}" if key in r.get("approx", []) else s
+    if key in ANALYSIS_KEYS:
+        if manual and not r.get("has_video"):
+            return "no video"
+        if "duration_s" not in r:
+            return "not analyzed"
+        return "none" if key == "first_cut_s" else "n/a"
+    if key in DERIVED:
+        return "can't compute"
+    return "missing" if manual else "-"
+
+
 def cmd_report(args) -> int:
     d = data_dir(args)
+    doc = load_doc(d)
+    manual = doc.get("mode") == "manual"
     rows = build_rows(d, args.tz_offset)
     by = args.by
-    scored = [r for r in rows if isinstance(r.get(by), (int, float))]
+    scored = [r for r in rows if _num(r.get(by))]
+    unranked = [r for r in rows if not _num(r.get(by))]
     if not scored:
-        sys.exit(f"No video has a value for '{by}'. Try --by views, reach, likes or engagement_rate.")
+        have = sorted({k for r in rows for k, v in r.items() if _num(v)} - ANALYSIS_KEYS
+                      - {"hour_local", "caption_words", "hashtags", "width", "height", "fps", "cuts", "source_size"})
+        sys.exit(f"No video has a value for '{by}', so nothing can be ranked by it. "
+                 f"Metrics with data: {', '.join(have) or 'none'}.")
     scored.sort(key=lambda r: r[by], reverse=True)
     n = len(scored)
     third = max(1, n // 3)
     top, bottom = scored[:third], scored[-third:]
 
     def med(group, key):
-        vals = [r[key] for r in group if isinstance(r.get(key), (int, float))]
-        return round(statistics.median(vals), 2) if vals else None
+        vals = [r[key] for r in group if _num(r.get(key))]
+        return round(statistics.median(vals), 4) if vals else None
 
     comparison = []
     for key, label in FEATURES:
         if key == by:
             continue
-        xs = [(r[key], r[by]) for r in scored if isinstance(r.get(key), (int, float))]
+        xs = [(r[key], r[by]) for r in scored if _num(r.get(key))]
         comparison.append({"feature": key, "label": label, "top": med(top, key), "bottom": med(bottom, key),
                            "spearman": spearman([x for x, _ in xs], [y for _, y in xs]), "n": len(xs)})
     days: dict[str, list] = {}
     for r in scored:
-        days.setdefault(r["weekday"], []).append(r[by])
+        if r["weekday"]:
+            days.setdefault(r["weekday"], []).append(r[by])
+    coverage = {k: [r["id"] for r in rows if _num(r.get(k))] for k in CORE_METRICS}
 
-    result = {"by": by, "videos": n, "analyzed": sum(1 for r in scored if "duration_s" in r),
-              "median": med(scored, by), "ranking": scored, "comparison": comparison,
-              "weekday_median": {k: round(statistics.median(v), 1) for k, v in days.items()}}
+    result = {"mode": doc.get("mode", "api"), "by": by, "videos": len(rows), "ranked": n,
+              "analyzed": sum(1 for r in rows if "duration_s" in r), "median": med(scored, by),
+              "ranking": scored, "not_ranked": [r["id"] for r in unranked],
+              "coverage": {k: len(v) for k, v in coverage.items()},
+              "comparison": comparison, "weekday_median": {k: round(statistics.median(v), 1) for k, v in days.items()}}
     (d / "report.json").write_text(json.dumps(result, indent=2, ensure_ascii=False))
 
-    L = [f"# Instagram video report, ranked by {by}", "",
-         f"{n} videos, {result['analyzed']} analyzed. Median {by}: {_fmt(result['median'])}. "
-         f"Top and bottom groups are the best and worst {third}.", "",
-         "## Ranking", "",
-         ]
-    cols = [by] + [c for c in ("views", "reach", "avg_watch_s", "duration_s", "cuts_per_10s", "first_cut_s")
-                   if c != by]
-    L += ["| # | posted | " + " | ".join(cols) + " | caption |", "|---" * (len(cols) + 3) + "|"]
+    L = [f"# Instagram video report, ranked by {by}", ""]
+    if manual:
+        L += ["Manual mode: every number below was supplied by you (screenshots or a CSV) or measured from "
+              "your video files. Nothing was fetched from Instagram, and blank values are shown as "
+              "**missing**, never estimated. Values marked ≈ were given rounded (for example 1.2K).", ""]
+    L += [f"{len(rows)} videos, {n} ranked by {by}, {result['analyzed']} analyzed from video files. "
+          f"Median {by}: {_fmt(result['median'])}. Top and bottom groups are the best and worst {third}.", ""]
+    if n < 6:
+        L += [f"Only {n} videos have {by}: treat any pattern below as a hint, not a finding.", ""]
+    L += ["## Data supplied", "", "| metric | videos with a value | missing for |", "|---|---|---|"]
+    for k in CORE_METRICS:
+        miss = [r for r in rows if not _num(r.get(k))]
+        names = ", ".join((r.get("file_name") or r["id"]) for r in miss[:8]) + (" ..." if len(miss) > 8 else "")
+        L.append(f"| {k} | {len(coverage[k])} of {len(rows)} | {names or 'none'} |")
+    L += ["", "## Ranking", ""]
+    cols = [by] + [c for c in ("views", "reach", "likes", "saved", "shares", "avg_watch_s", "duration_s",
+                               "cuts_per_10s", "first_cut_s") if c != by]
+    label = "video" if manual else "post"
+    L += [f"| # | {label} | posted | " + " | ".join(cols) + " | caption |", "|---" * (len(cols) + 4) + "|"]
+
+    def name(r):
+        base = r.get("file_name") or r["id"]
+        return f"[{base}]({r['permalink']})" if r.get("permalink") else base
+
     for i, r in enumerate(scored, 1):
-        cap = (r.get("caption") or "").replace("|", "/")[:50]
-        L.append(f"| {i} | [{r['posted']}]({r.get('permalink')}) | "
-                 + " | ".join(_fmt(r.get(c)) for c in cols) + f" | {cap} |")
+        cap = (r.get("caption") or "").replace("|", "/")[:50] or ("missing" if manual else "")
+        L.append(f"| {i} | {name(r)} | {r['posted'] or 'missing'} | "
+                 + " | ".join(_cell(r, c, manual) for c in cols) + f" | {cap} |")
+    if unranked:
+        why = (f"{by} can't be computed: it needs {DERIVED[by][0]} and {DERIVED[by][1]}" if by in DERIVED
+               else f"no {by} supplied")
+        L += ["", f"**Not ranked** ({why}): " + ", ".join(name(r) for r in unranked)]
     L += ["", "## What the top third does differently", "",
-          "Medians. Rank correlation needs 5+ videos; |r| under 0.3 is noise at this sample size.", "",
+          "Medians. Rank correlation needs 5+ videos with both values; |r| under 0.3 is noise at this "
+          "sample size. n is how many ranked videos have the feature.", "",
           "| feature | top | bottom | rank corr. with " + by + " | n |", "|---|---|---|---|---|"]
     for c in comparison:
         if c["n"]:
-            L.append(f"| {c['label']} | {_fmt(c['top'])} | {_fmt(c['bottom'])} | {_fmt(c['spearman'])} | {c['n']} |")
-    L += ["", "## By weekday (median " + by + ")", "",
-          " · ".join(f"{k} {v}" for k, v in sorted(result["weekday_median"].items(), key=lambda kv: -kv[1])), "",
-          "## Frames to look at", ""]
+            gap = "missing" if manual else "-"
+            L.append(f"| {c['label']} | {_fmt(c['top']) if c['top'] is not None else gap} | "
+                     f"{_fmt(c['bottom']) if c['bottom'] is not None else gap} | "
+                     f"{_fmt(c['spearman']) if c['spearman'] is not None else 'too few'} | {c['n']} |")
+    skipped = [c["label"] for c in comparison if not c["n"]]
+    if skipped:
+        L += ["", "No data for: " + ", ".join(skipped) + "."]
+    if result["weekday_median"]:
+        L += ["", "## By weekday (median " + by + ")", "",
+              " · ".join(f"{k} {v}" for k, v in sorted(result["weekday_median"].items(), key=lambda kv: -kv[1]))]
+    if manual:
+        L += ["", "## Where each video's numbers came from", ""]
+        for r in rows:
+            L.append(f"- {r.get('file_name') or r['id']}: {r.get('metric_source') or 'no metrics supplied'}")
+    L += ["", "## Frames to look at", ""]
     for r in top + [x for x in bottom if x not in top]:
         if r.get("hook_strip"):
-            L.append(f"- {r['posted']} ({by} {_fmt(r.get(by))}): hook `{r['hook_strip']}`, "
-                     f"sheet `{r.get('contact_sheet')}`")
+            L.append(f"- {r.get('file_name') or r['posted']} ({by} {_cell(r, by, manual)}): "
+                     f"hook `{r['hook_strip']}`, sheet `{r.get('contact_sheet')}`")
     md = "\n".join(L) + "\n"
     (d / "report.md").write_text(md)
     print(json.dumps(result, indent=2, ensure_ascii=False) if args.json else md)
+    return 0
+
+
+# --------------------------------------------------------------------------- manual mode
+
+VIDEO_EXTS = {".mp4", ".mov", ".m4v", ".webm", ".mkv", ".avi"}
+TEMPLATE_COLS = ["file", "posted", "views", "reach", "likes", "comments", "saves", "shares",
+                 "avg_watch_s", "caption", "permalink", "source", "notes"]
+MISSING_TOKENS = {"", "-", "--", "—", "–", "n/a", "na", "none", "null", "missing", "?"}
+
+
+def _norm(h: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", h.lower()).strip()
+
+
+# Column header (normalized) -> field. Anything else numeric is kept under its own name.
+COLUMN_MAP = {_norm(h): k for k, hs in {
+    "file": ["file", "filename", "file name", "video", "video file"],
+    "posted": ["posted", "publish time", "published", "publish date", "date posted", "post date", "posted at"],
+    "caption": ["caption", "description", "title"],
+    "permalink": ["permalink", "link", "url", "post link", "reel link"],
+    "source": ["source", "metrics source"],
+    "notes": ["notes", "note"],
+    "post_type": ["post type", "type"],
+    "reported_duration_s": ["duration sec", "duration (sec)", "duration s"],
+    "views": ["views", "video views", "reel views"],
+    "plays": ["plays", "initial plays"],
+    "reach": ["reach", "accounts reached"],
+    "likes": ["likes"],
+    "comments": ["comments"],
+    "saved": ["saves", "saved"],
+    "shares": ["shares"],
+    "total_interactions": ["interactions", "total interactions", "content interactions"],
+    "follows": ["follows"],
+    "avg_watch_s": ["avg_watch_s", "average watch time", "avg watch time", "average watch time sec",
+                    "average watch time s", "avg watch time sec"],
+}.items() for h in hs}
+IGNORED_COLUMNS = {_norm(h) for h in ["post id", "account id", "account username", "account name",
+                                      "data comment", "date"]}
+TEXT_FIELDS = {"file", "posted", "caption", "permalink", "source", "notes", "post_type"}
+
+
+def parse_count(raw: str) -> tuple[float | int | None, bool]:
+    """'1,234' -> 1234; '1.2K' -> 1200 (approximate); '' -> None. Raises ValueError otherwise."""
+    s = raw.strip()
+    if s.lower() in MISSING_TOKENS:
+        return None, False
+    s = s.lstrip("≈~").replace(" ", "").replace(" ", "").replace(" ", "")
+    if re.fullmatch(r"\d+,\d{1,2}[kKmM]", s):  # 1,2K written with a decimal comma
+        s = s.replace(",", ".")
+    s = s.replace(",", "")
+    m = re.fullmatch(r"(\d+(?:\.\d+)?)([kKmM]?)", s)
+    if not m:
+        raise ValueError("not a number")
+    val = float(m.group(1)) * {"": 1, "k": 1e3, "m": 1e6}[m.group(2).lower()]
+    approx = bool(m.group(2))
+    return (int(round(val)) if (approx or val.is_integer()) else val), approx
+
+
+def parse_seconds(raw: str, plain_is_seconds: bool) -> float | None:
+    """'7 sec', '7.4s', '1m 5s', '1:05' -> seconds. A bare number only when the column says seconds."""
+    s = raw.strip().lower()
+    if s in MISSING_TOKENS:
+        return None
+    if re.fullmatch(r"\d+:\d{2}(:\d{2})?", s):
+        parts = [int(p) for p in s.split(":")]
+        return float(sum(p * 60 ** i for i, p in enumerate(reversed(parts))))
+    m = re.fullmatch(r"(?:(\d+(?:\.\d+)?)\s*(?:m|min|mins|minutes?))?\s*"
+                     r"(?:(\d+(?:\.\d+)?)\s*(?:s|sec|secs|seconds?))?", s)
+    if m and (m.group(1) or m.group(2)):
+        return round(float(m.group(1) or 0) * 60 + float(m.group(2) or 0), 2)
+    if re.fullmatch(r"\d+(?:\.\d+)?", s):
+        if plain_is_seconds:
+            return float(s)
+        raise ValueError("a bare number with no unit; write it as '7 sec' or '0:07'")
+    raise ValueError("not a duration")
+
+
+def parse_posted(raw: str, order: str) -> tuple[str | None, bool]:
+    """Returns (ISO local datetime, has_time). Slash dates follow --date-order (mdy or dmy)."""
+    s = raw.strip()
+    if s.lower() in MISSING_TOKENS:
+        return None, False
+    slash = "%m/%d/%Y" if order == "mdy" else "%d/%m/%Y"
+    for fmt, has_time in (("%Y-%m-%d %H:%M:%S", True), ("%Y-%m-%dT%H:%M:%S", True), ("%Y-%m-%d %H:%M", True),
+                          ("%Y-%m-%dT%H:%M", True), ("%Y-%m-%d", False), (slash + " %H:%M", True),
+                          (slash + " %H:%M:%S", True), (slash, False), ("%b %d, %Y", False),
+                          ("%B %d, %Y", False), ("%d %b %Y", False), ("%d %B %Y", False)):
+        try:
+            return dt.datetime.strptime(s, fmt).isoformat(), has_time
+        except ValueError:
+            pass
+    raise ValueError("unrecognized date; use 2026-10-03 or 2026-10-03 18:30")
+
+
+def _slug(stem: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", stem.lower()).strip("-") or "video"
+
+
+def scan_videos(folder: Path) -> list[Path]:
+    if not folder.is_dir():
+        sys.exit(f"Video folder not found: {folder}")
+    return sorted(p for p in folder.rglob("*") if p.is_file() and p.suffix.lower() in VIDEO_EXTS
+                  and not any(part.startswith(".") for part in p.relative_to(folder).parts)
+                  and "instagram-data" not in p.relative_to(folder).parts)
+
+
+def cmd_manual_init(args) -> int:
+    d = data_dir(args)
+    out = Path(args.out) if args.out else d / "metrics.csv"
+    vids = scan_videos(Path(args.videos))
+    existing, header = [], TEMPLATE_COLS
+    if out.exists():
+        with open(out, newline="", encoding="utf-8-sig") as f:
+            rd = csv.DictReader(f)
+            header = rd.fieldnames or TEMPLATE_COLS
+            existing = list(rd)
+    have = {(row.get("file") or "").strip().lower() for row in existing}
+    added = [{"file": v.name} for v in vids if v.name.lower() not in have]
+    with open(out, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=header, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(existing + added)
+    print(f"{out}: {len(existing) + len(added)} rows ({len(added)} new) for {len(vids)} videos in {args.videos}.")
+    print("Fill in only numbers you can see in Instagram Insights; leave the rest blank. Then run "
+          f"`manual import --videos {args.videos} --metrics {out}`.")
+    return 0
+
+
+def cmd_manual_import(args) -> int:
+    d = data_dir(args)
+    if (d / "media.json").exists() and load_doc(d).get("mode") != "manual" and not args.force:
+        sys.exit(f"{d / 'media.json'} holds API data. Use another folder (--data instagram-manual) or --force.")
+    folder = Path(args.videos) if args.videos else None
+    vids = scan_videos(folder) if folder else []
+    by_name = {v.name.lower(): v for v in vids}
+    by_stem: dict[str, list[Path]] = {}
+    for v in vids:
+        by_stem.setdefault(v.stem.lower(), []).append(v)
+
+    rows: list[tuple[int, dict]] = []
+    if args.metrics:
+        with open(args.metrics, newline="", encoding="utf-8-sig") as f:
+            rd = csv.reader(f)
+            try:
+                head = next(rd)
+            except StopIteration:
+                sys.exit(f"{args.metrics} is empty.")
+            body = list(rd)
+        fields, extra_cols, ignored = [], [], []
+        # a bare number is seconds only if the header says so ("avg_watch_s", "... (sec)")
+        secs_ok = {}
+        for h in head:
+            key = COLUMN_MAP.get(_norm(h))
+            if key in ("avg_watch_s", "reported_duration_s"):
+                secs_ok[key] = bool(re.search(r"\b(s|sec|secs|seconds)\b", _norm(h).replace("_", " ")))
+            if key is None and _norm(h) and _norm(h) not in IGNORED_COLUMNS:
+                key = "x_" + _norm(h).replace(" ", "_")
+                extra_cols.append(h)
+            elif key is None:
+                ignored.append(h)
+            fields.append(key)
+        dup = {k for k in fields if k and fields.count(k) > 1}
+        if dup:
+            sys.exit(f"Two columns map to the same field: {', '.join(sorted(dup))}. Rename or remove one.")
+        for i, cells in enumerate(body, start=2):
+            if not any(c.strip() for c in cells):
+                continue
+            rows.append((i, {k: (cells[j] if j < len(cells) else "") for j, k in enumerate(fields) if k}))
+        if extra_cols:
+            print(f"Kept as extra metrics under their own names, in the units written in the file: "
+                  f"{', '.join(extra_cols)}", file=sys.stderr)
+
+    errors, warnings, media, used = [], [], [], {}
+    ids: set[str] = set()
+
+    def new_id(base: str) -> str:
+        i, cand = 1, base
+        while cand in ids:
+            i += 1
+            cand = f"{base}-{i}"
+        ids.add(cand)
+        return cand
+
+    for line, row in rows:
+        rec: dict = {"insights": {}, "approx": [], "row": line, "time_is_local": True}
+        where = f"row {line}"
+        # link to a video file: by the file column, else by a shortcode from the link; never by row order
+        video, fname = None, (row.get("file") or "").strip()
+        if fname:
+            video = by_name.get(Path(fname).name.lower())
+            if video is None:
+                cands = by_stem.get(Path(fname).stem.lower(), [])
+                video = cands[0] if len(cands) == 1 else None
+                if len(cands) > 1:
+                    errors.append(f"{where}: '{fname}' matches several files: {', '.join(c.name for c in cands)}")
+            if video is None and folder:
+                warnings.append(f"{where}: file '{fname}' not found in {folder}; metrics kept, no video analysis")
+        elif row.get("permalink"):
+            code = row["permalink"].rstrip("/").split("/")[-1].split("?")[0]
+            hits = [v for v in vids if code and code in v.stem]
+            if len(hits) == 1:
+                video = hits[0]
+            else:
+                warnings.append(f"{where}: no 'file' value and {'several' if hits else 'no'} video names contain "
+                                f"'{code}'; metrics kept, not linked to a video")
+        else:
+            warnings.append(f"{where}: no 'file' or link column value; metrics kept, not linked to a video")
+        if video is not None:
+            if video in used:
+                errors.append(f"{where}: {video.name} is already used by row {used[video]}")
+            used[video] = line
+        rec["file"] = str(video.resolve()) if video else None
+        rec["file_name"] = video.name if video else (fname or None)
+        rec["id"] = new_id(_slug(video.stem if video else (Path(fname).stem if fname else f"row{line}")))
+
+        for key, raw in row.items():
+            if key in TEXT_FIELDS:
+                continue
+            raw = raw or ""
+            try:
+                if key in ("avg_watch_s", "reported_duration_s"):
+                    val, approx = parse_seconds(raw, secs_ok.get(key, False)), False
+                else:
+                    val, approx = parse_count(raw)
+            except ValueError as e:
+                errors.append(f"{where}, {key}: '{raw}' is {e}")
+                continue
+            if val is None:
+                continue
+            if key in ("likes", "comments"):
+                rec[key] = val
+            elif key == "reported_duration_s":
+                rec[key] = val
+            else:
+                rec["insights"][key] = val
+            if approx:
+                rec["approx"].append(key)
+        try:
+            rec["timestamp"], rec["has_time"] = parse_posted(row.get("posted") or "", args.date_order)
+        except ValueError as e:
+            errors.append(f"{where}, posted: '{row.get('posted')}' is an {e}")
+            rec["timestamp"], rec["has_time"] = None, False
+        if row.get("permalink"):
+            rec["permalink"] = row["permalink"].strip()
+            rec["shortcode"] = rec["permalink"].rstrip("/").split("/")[-1]
+        if row.get("post_type"):
+            rec["media_product_type"] = row["post_type"].strip().upper()
+        if (row.get("caption") or "").strip():
+            rec["caption"] = row["caption"]
+            rec.update(caption_features(row["caption"]))
+        if row.get("notes"):
+            rec["notes"] = row["notes"].strip()
+        has_numbers = bool(rec["insights"]) or "likes" in rec or "comments" in rec
+        src = (row.get("source") or "").strip() or args.source
+        if has_numbers and not src:
+            warnings.append(f"{where}: numbers but no 'source' (which screenshot or export they came from)")
+        rec["metric_source"] = (src or "not recorded") if has_numbers else None
+        if "likes" not in rec:
+            rec["likes"] = None
+        if "comments" not in rec:
+            rec["comments"] = None
+        rec["missing"] = [k for k in CORE_METRICS
+                          if k not in rec["insights"] and not (k in ("likes", "comments") and rec[k] is not None)]
+        media.append(rec)
+
+    for v in vids:
+        if v not in used:
+            media.append({"id": new_id(_slug(v.stem)), "file": str(v.resolve()), "file_name": v.name,
+                          "insights": {}, "likes": None, "comments": None, "approx": [], "timestamp": None,
+                          "time_is_local": True, "metric_source": None, "missing": list(CORE_METRICS)})
+            warnings.append(f"{v.name}: no metrics row; it will be measured but not ranked")
+
+    for w in warnings:
+        print(f"note: {w}", file=sys.stderr)
+    if errors:
+        print("\nNothing was imported. Fix these values (the import never guesses):", file=sys.stderr)
+        for e in errors:
+            print(f"  {e}", file=sys.stderr)
+        return 1
+    if not media:
+        sys.exit("No videos and no metric rows found.")
+
+    now = dt.datetime.now(dt.timezone.utc)
+    doc = {"mode": "manual", "imported_at": now.isoformat(timespec="seconds"),
+           "metrics_file": str(Path(args.metrics).resolve()) if args.metrics else None,
+           "videos_folder": str(folder.resolve()) if folder else None, "media": media}
+    (d / "media.json").write_text(json.dumps(doc, indent=2, ensure_ascii=False))
+    snaps = d / "snapshots"
+    snaps.mkdir(exist_ok=True)
+    (snaps / f"{now:%Y%m%dT%H%M%S}-manual.json").write_text(json.dumps(doc, indent=2, ensure_ascii=False))
+
+    linked = sum(1 for m in media if m.get("file"))
+    print(f"Imported {len(media)} videos ({linked} with a video file, "
+          f"{sum(1 for m in media if m['metric_source'])} with metrics) -> {d / 'media.json'}\n")
+    print(f"{'video':<28} " + " ".join(f"{k:>11}" for k in CORE_METRICS) + "  source")
+    for m in media:
+        vals = []
+        for k in CORE_METRICS:
+            v = m.get(k) if k in ("likes", "comments") else m["insights"].get(k)
+            vals.append("missing" if v is None else ("≈" if k in m["approx"] else "") + _fmt(v))
+        print(f"{(m.get('file_name') or m['id'])[:28]:<28} " + " ".join(f"{v:>11}" for v in vals)
+              + f"  {m['metric_source'] or '-'}")
     return 0
 
 
@@ -624,6 +1033,21 @@ def main() -> int:
     r.add_argument("--tz-offset", type=float, default=0.0, help="hours from UTC for posting times")
     r.add_argument("--json", action="store_true")
     r.set_defaults(fn=cmd_report)
+
+    mp = sub.add_parser("manual", help="no token: your own video files plus metrics you supply")
+    msub = mp.add_subparsers(dest="manual_cmd", required=True)
+    mi = msub.add_parser("init", help="write a metrics.csv to fill in, one row per video file")
+    mi.add_argument("--videos", required=True, help="folder with your original reel files")
+    mi.add_argument("--out", help="where to write it (default <data>/metrics.csv); existing rows are kept")
+    mi.set_defaults(fn=cmd_manual_init)
+    mm = msub.add_parser("import", help="link supplied metrics to video files -> media.json")
+    mm.add_argument("--videos", help="folder with your original reel files")
+    mm.add_argument("--metrics", help="CSV of metrics: the filled-in template or an Insights export")
+    mm.add_argument("--source", help="where the numbers came from, for rows with no 'source' value")
+    mm.add_argument("--date-order", choices=["mdy", "dmy"], default="mdy",
+                    help="how to read slash dates like 03/10/2026 (default mdy, as in Meta's exports)")
+    mm.add_argument("--force", action="store_true", help="replace API data in this data folder")
+    mm.set_defaults(fn=cmd_manual_import)
 
     args = p.parse_args()
     try:
