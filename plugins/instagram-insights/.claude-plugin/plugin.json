@@ -1,0 +1,9 @@
+{
+  "name": "instagram-insights",
+  "version": "0.2.0",
+  "description": "Measure your Instagram videos and Reels (length, cuts, hook, sound) and report what the best ones do differently. Works from your own reel files plus Insights screenshots or a CSV, with no Meta token, or through the Instagram Login API.",
+  "author": {
+    "name": "claude-code-video-toolkit"
+  },
+  "keywords": ["instagram", "reels", "analytics", "video", "insights"]
+}
