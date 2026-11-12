@@ -1,0 +1,9 @@
+{
+  "name": "instagram-insights",
+  "version": "0.1.0",
+  "description": "Read your Instagram Business or Creator account's videos and Reels with their insights, download and measure them (length, cuts, hook, sound), and report what the best ones do differently.",
+  "author": {
+    "name": "claude-code-video-toolkit"
+  },
+  "keywords": ["instagram", "reels", "analytics", "video", "insights"]
+}
