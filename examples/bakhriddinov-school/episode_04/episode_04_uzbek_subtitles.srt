@@ -1,0 +1,51 @@
+1
+00:00:00,185 --> 00:00:01,298
+Tezkor savol!
+
+2
+00:00:01,298 --> 00:00:05,301
+Qaysi biri rezavor meva: banan yoki qulupnay?
+
+3
+00:00:05,301 --> 00:00:06,445
+Kutilmagan burilish!
+
+4
+00:00:06,445 --> 00:00:09,341
+Banan rezavor meva hisoblanadi, qulupnay esa yo‘q!
+
+5
+00:00:09,341 --> 00:00:11,186
+Botanikada haqiqiy rezavor meva
+
+6
+00:00:11,216 --> 00:00:13,857
+bitta gulning yagona tugunchasidan rivojlanadi.
+
+7
+00:00:13,857 --> 00:00:15,867
+Qulupnay esa boshqacha rivojlanadi.
+
+8
+00:00:15,867 --> 00:00:17,853
+Uning tashqi yuzasidagi mayda nuqtalar-chi?
+
+9
+00:00:17,853 --> 00:00:19,933
+Aslida ular mitti mevachalar!
+
+10
+00:00:19,933 --> 00:00:23,289
+“Plot twist” degani kutilmagan burilish.
+
+11
+00:00:23,289 --> 00:00:25,979
+Tasavvur qiling: qulupnayga u rezavor emasligini aytdingiz.
+
+12
+00:00:25,979 --> 00:00:27,109
+Uning javobi-chi?
+
+13
+00:00:27,109 --> 00:00:29,364
+Axir nomimda “BERRY” so‘zi turibdi-ku!
