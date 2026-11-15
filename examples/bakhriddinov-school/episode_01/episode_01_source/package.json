@@ -1,0 +1,4 @@
+{"name":"episode-01-octopus","version":"1.0.0","private":true,
+"scripts":{"studio":"remotion studio","render":"remotion render Episode out/video.mp4 --muted --codec h264 --crf 16 --pixel-format yuv420p"},
+"dependencies":{"@remotion/cli":"4.0.539","react":"^18.2.0","react-dom":"^18.2.0","remotion":"4.0.539"},
+"devDependencies":{"@types/react":"^18.2.0","typescript":"^5.0.0"}}
