@@ -1,0 +1,44 @@
+{
+  "episode": "ep01-ali-ielts",
+  "title": "Ali va IELTS — ertani kutma!",
+  "voice": {
+    "engine": "edge-tts",
+    "name": "uz-UZ-SardorNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "enhance": true,
+    "elevenlabsVoiceId": ""
+  },
+  "fps": 30,
+  "scenes": [
+    {"id": "hook", "pre": 0.5, "note": "Ali drops in, BOOM, points at IELTS 7.0 target"},
+    {"id": "problem", "pre": 0.0, "note": "Lazy on sofa, phone lights up, 0% MOTIVATION"},
+    {"id": "procrastination", "pre": 0.1, "note": "ERTADAN! + calendar flips, book untouched"},
+    {"id": "social", "pre": 0.15, "note": "Giant phone feed, clock 15:00→18:00, 3 SOAT?!"},
+    {"id": "reality", "pre": 0.2, "note": "Mock test desk, score slam, crash zoom, 7.0 bubble bursts"},
+    {"id": "wakeup", "pre": 0.3, "note": "Freeze, dark, kinetic type, spotlight on book"},
+    {"id": "transformation", "pre": 0.1, "note": "Study montage, progress bar, streak calendar"},
+    {"id": "cta", "pre": 0.15, "note": "Point at viewer, BUGUNDAN BOSHLA!, follow button"}
+  ],
+  "lines": [
+    {"id": "l01", "scene": "hook", "text": "MANA BU ALI!", "spoken": "MANA BU ALI!", "pitch": "+6Hz", "highlight": ["ALI!"], "gapAfter": 0.15},
+    {"id": "l02", "scene": "hook", "text": "Bu bola IELTS o‘qimoqchi,", "spoken": "Bu bola, Ayelts o‘qimoqchi,", "highlight": ["IELTS"], "gapAfter": 0.25},
+    {"id": "l03", "scene": "problem", "text": "lekin o‘qishga umuman niyati yo‘q!", "spoken": "lekin, o‘qishga umuman niyati yo‘q!", "highlight": ["niyati", "yo‘q!"], "gapAfter": 0.7},
+    {"id": "l04", "scene": "procrastination", "text": "Har kuni bitta gap: Ertadan boshlayman!", "spoken": "Har kuni bitta gap: Ertadan boshlayman!", "highlight": ["Ertadan", "boshlayman!"], "gapAfter": 0.4},
+    {"id": "l05", "scene": "procrastination", "text": "Lekin ertasi kuni...", "spoken": "Lekin... ertasi kuni...", "highlight": ["ertasi"], "gapAfter": 0.65},
+    {"id": "l06", "scene": "social", "text": "Besh daqiqa Instagram...", "spoken": "Besh daqiqa Instagram...", "highlight": ["Instagram..."], "gapAfter": 0.35},
+    {"id": "l07", "scene": "social", "text": "Yana besh daqiqa TikTok...", "spoken": "Yana besh daqiqa TikTok...", "highlight": ["TikTok..."], "gapAfter": 0.4},
+    {"id": "l08", "scene": "social", "text": "Qarasaki, uch soat o‘tib ketibdi!", "spoken": "Qarasaki, uch soat o‘tib ketibdi!", "highlight": ["uch", "soat"], "gapAfter": 0.75},
+    {"id": "l09", "scene": "reality", "text": "Bir kuni Ali IELTS mock testga kirdi.", "spoken": "Bir kuni Ali, Ayelts mok testga kirdi.", "highlight": ["mock", "test"], "gapAfter": 0.3},
+    {"id": "l10", "scene": "reality", "text": "Listening — to‘rt yarim!", "spoken": "Listening... to‘rt yarim!", "highlight": ["to‘rt", "yarim!"], "gapAfter": 0.35},
+    {"id": "l11", "scene": "reality", "text": "Reading — to‘rt!", "spoken": "Riding... to‘rt!", "highlight": ["to‘rt!"], "gapAfter": 0.45},
+    {"id": "l12", "scene": "reality", "text": "Ali hayron: Nega mening balim oshmayapti?!", "spoken": "Ali hayron: Nega mening balim oshmayapti?!", "highlight": ["oshmayapti?!"], "gapAfter": 0.45},
+    {"id": "l13", "scene": "wakeup", "text": "Chunki, Ali, IELTS ballari orzu qilish bilan oshmaydi!", "spoken": "Chunki, Ali... Ayelts ballari, orzu qilish bilan oshmaydi!", "highlight": ["orzu", "oshmaydi!"], "gapAfter": 0.65},
+    {"id": "l14", "scene": "transformation", "text": "Shundan keyin Ali o‘zini qo‘lga oldi.", "spoken": "Shundan keyin, Ali o‘zini qo‘lga oldi.", "highlight": ["qo‘lga", "oldi."], "gapAfter": 0.3},
+    {"id": "l15", "scene": "transformation", "text": "Har kuni listening, reading va yangi so‘zlar!", "spoken": "Har kuni listening, riding, va yangi so‘zlar!", "highlight": ["listening,", "reading", "so‘zlar!"], "gapAfter": 0.35},
+    {"id": "l16", "scene": "transformation", "text": "Va nihoyat, natijasi yaxshilana boshladi!", "spoken": "Va nihoyat, natijasi yaxshilana boshladi!", "highlight": ["yaxshilana"], "gapAfter": 0.45},
+    {"id": "l17", "scene": "cta", "text": "Sen ham Aliga o‘xshab ertani kutma!", "spoken": "Sen ham Aliga o‘xshab, ertani kutma!", "highlight": ["kutma!"], "gapAfter": 0.25},
+    {"id": "l18", "scene": "cta", "text": "IELTSni bugundan boshla!", "spoken": "Ayeltsni bugundan boshla!", "highlight": ["bugundan", "boshla!"], "gapAfter": 0.3},
+    {"id": "l19", "scene": "cta", "text": "Yana shunaqa foydali videolar uchun obuna bo‘l!", "spoken": "Yana shunaqa foydali videolar uchun, obuna bo‘l!", "highlight": ["obuna", "bo‘l!"], "gapAfter": 1.1}
+  ]
+}

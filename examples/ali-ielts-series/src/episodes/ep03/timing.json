@@ -1,0 +1,684 @@
+{
+ "lines": [
+  {
+   "id": "l01",
+   "file": "ep03/vo/l01.wav",
+   "duration": 1.177,
+   "placeholder": false,
+   "alignScore": 0.808,
+   "words": [
+    {
+     "text": "MANA",
+     "start": 0.325,
+     "end": 0.548
+    },
+    {
+     "text": "BU",
+     "start": 0.609,
+     "end": 0.69
+    },
+    {
+     "text": "ALI!",
+     "start": 0.893,
+     "end": 1.075
+    }
+   ]
+  },
+  {
+   "id": "l02",
+   "file": "ep03/vo/l02.wav",
+   "duration": 1.996,
+   "placeholder": false,
+   "alignScore": 0.867,
+   "words": [
+    {
+     "text": "Bu",
+     "start": 0.06,
+     "end": 0.121
+    },
+    {
+     "text": "safar",
+     "start": 0.202,
+     "end": 0.464
+    },
+    {
+     "text": "u",
+     "start": 0.544,
+     "end": 0.564
+    },
+    {
+     "text": "IELTS",
+     "start": 0.726,
+     "end": 0.988
+    },
+    {
+     "text": "Readingni",
+     "start": 1.068,
+     "end": 1.371
+    },
+    {
+     "text": "yengmoqchi!",
+     "start": 1.431,
+     "end": 1.895
+    }
+   ]
+  },
+  {
+   "id": "l03",
+   "file": "ep03/vo/l03.wav",
+   "duration": 3.097,
+   "placeholder": false,
+   "alignScore": 0.927,
+   "words": [
+    {
+     "text": "Ali",
+     "start": 0.322,
+     "end": 0.462
+    },
+    {
+     "text": "matnni",
+     "start": 0.503,
+     "end": 0.824
+    },
+    {
+     "text": "ochdi-yu...",
+     "start": 0.885,
+     "end": 1.227
+    },
+    {
+     "text": "birinchi",
+     "start": 1.588,
+     "end": 1.91
+    },
+    {
+     "text": "qatordayoq",
+     "start": 1.971,
+     "end": 2.413
+    },
+    {
+     "text": "to‘xtab",
+     "start": 2.453,
+     "end": 2.715
+    },
+    {
+     "text": "qoldi!",
+     "start": 2.755,
+     "end": 2.996
+    }
+   ]
+  },
+  {
+   "id": "l04",
+   "file": "ep03/vo/l04.wav",
+   "duration": 2.12,
+   "placeholder": false,
+   "alignScore": 0.972,
+   "words": [
+    {
+     "text": "However...",
+     "start": 0.081,
+     "end": 0.444
+    },
+    {
+     "text": "Significant...",
+     "start": 0.606,
+     "end": 1.171
+    },
+    {
+     "text": "Consequently...",
+     "start": 1.474,
+     "end": 2.06
+    }
+   ]
+  },
+  {
+   "id": "l05",
+   "file": "ep03/vo/l05.wav",
+   "duration": 1.793,
+   "placeholder": false,
+   "alignScore": 0.848,
+   "words": [
+    {
+     "text": "Ali",
+     "start": 0.04,
+     "end": 0.161
+    },
+    {
+     "text": "har",
+     "start": 0.201,
+     "end": 0.342
+    },
+    {
+     "text": "bitta",
+     "start": 0.423,
+     "end": 0.665
+    },
+    {
+     "text": "so‘zni",
+     "start": 0.725,
+     "end": 0.947
+    },
+    {
+     "text": "tarjima",
+     "start": 0.967,
+     "end": 1.249
+    },
+    {
+     "text": "qilyapti!",
+     "start": 1.31,
+     "end": 1.692
+    }
+   ]
+  },
+  {
+   "id": "l06",
+   "file": "ep03/vo/l06.wav",
+   "duration": 1.305,
+   "placeholder": false,
+   "alignScore": 0.715,
+   "words": [
+    {
+     "text": "O‘n",
+     "start": 0.347,
+     "end": 0.448
+    },
+    {
+     "text": "daqiqa",
+     "start": 0.489,
+     "end": 0.877
+    },
+    {
+     "text": "o‘tdi...",
+     "start": 0.978,
+     "end": 1.203
+    }
+   ]
+  },
+  {
+   "id": "l07",
+   "file": "ep03/vo/l07.wav",
+   "duration": 1.776,
+   "placeholder": false,
+   "alignScore": 0.863,
+   "words": [
+    {
+     "text": "Ali",
+     "start": 0.061,
+     "end": 0.202
+    },
+    {
+     "text": "esa",
+     "start": 0.262,
+     "end": 0.424
+    },
+    {
+     "text": "hali",
+     "start": 0.625,
+     "end": 0.807
+    },
+    {
+     "text": "ham",
+     "start": 0.827,
+     "end": 0.968
+    },
+    {
+     "text": "birinchi",
+     "start": 1.029,
+     "end": 1.291
+    },
+    {
+     "text": "savolda!",
+     "start": 1.311,
+     "end": 1.675
+    }
+   ]
+  },
+  {
+   "id": "l08",
+   "file": "ep03/vo/l08.wav",
+   "duration": 1.152,
+   "placeholder": false,
+   "alignScore": 0.376,
+   "words": [
+    {
+     "text": "TIK-TAK!",
+     "start": 0.02,
+     "end": 0.404
+    },
+    {
+     "text": "TIK-TAK!",
+     "start": 0.667,
+     "end": 1.051
+    }
+   ]
+  },
+  {
+   "id": "l09",
+   "file": "ep03/vo/l09.wav",
+   "duration": 1.719,
+   "placeholder": false,
+   "alignScore": 0.891,
+   "words": [
+    {
+     "text": "Ali",
+     "start": 0.04,
+     "end": 0.142
+    },
+    {
+     "text": "hayron:",
+     "start": 0.182,
+     "end": 0.445
+    },
+    {
+     "text": "Vaqt",
+     "start": 0.768,
+     "end": 0.971
+    },
+    {
+     "text": "qayerga",
+     "start": 1.011,
+     "end": 1.335
+    },
+    {
+     "text": "ketdi?!",
+     "start": 1.375,
+     "end": 1.618
+    }
+   ]
+  },
+  {
+   "id": "l10",
+   "file": "ep03/vo/l10.wav",
+   "duration": 3.214,
+   "placeholder": false,
+   "alignScore": 0.907,
+   "words": [
+    {
+     "text": "Chunki,",
+     "start": 0.241,
+     "end": 0.502
+    },
+    {
+     "text": "Ali,",
+     "start": 0.643,
+     "end": 0.783
+    },
+    {
+     "text": "Readingda",
+     "start": 0.904,
+     "end": 1.266
+    },
+    {
+     "text": "har",
+     "start": 1.346,
+     "end": 1.507
+    },
+    {
+     "text": "bir",
+     "start": 1.547,
+     "end": 1.647
+    },
+    {
+     "text": "so‘zni",
+     "start": 1.667,
+     "end": 1.908
+    },
+    {
+     "text": "tarjima",
+     "start": 1.969,
+     "end": 2.29
+    },
+    {
+     "text": "qilish",
+     "start": 2.33,
+     "end": 2.531
+    },
+    {
+     "text": "shart",
+     "start": 2.592,
+     "end": 2.813
+    },
+    {
+     "text": "emas!",
+     "start": 2.853,
+     "end": 3.074
+    }
+   ]
+  },
+  {
+   "id": "l11",
+   "file": "ep03/vo/l11.wav",
+   "duration": 4.165,
+   "placeholder": false,
+   "alignScore": 0.86,
+   "words": [
+    {
+     "text": "Avval",
+     "start": 0.04,
+     "end": 0.302
+    },
+    {
+     "text": "savolni",
+     "start": 0.342,
+     "end": 0.684
+    },
+    {
+     "text": "o‘qi.",
+     "start": 0.805,
+     "end": 0.986
+    },
+    {
+     "text": "Kalit",
+     "start": 1.328,
+     "end": 1.589
+    },
+    {
+     "text": "so‘zlarni",
+     "start": 1.61,
+     "end": 1.972
+    },
+    {
+     "text": "aniqla.",
+     "start": 1.992,
+     "end": 2.233
+    },
+    {
+     "text": "Matndan",
+     "start": 2.595,
+     "end": 2.998
+    },
+    {
+     "text": "kerakli",
+     "start": 3.058,
+     "end": 3.38
+    },
+    {
+     "text": "ma’lumotni",
+     "start": 3.42,
+     "end": 3.843
+    },
+    {
+     "text": "izla!",
+     "start": 3.883,
+     "end": 4.064
+    }
+   ]
+  },
+  {
+   "id": "l12",
+   "file": "ep03/vo/l12.wav",
+   "duration": 4.489,
+   "placeholder": false,
+   "alignScore": 0.84,
+   "words": [
+    {
+     "text": "Lekin",
+     "start": 0.281,
+     "end": 0.521
+    },
+    {
+     "text": "ehtiyot",
+     "start": 0.601,
+     "end": 0.922
+    },
+    {
+     "text": "bo‘l!",
+     "start": 0.962,
+     "end": 1.102
+    },
+    {
+     "text": "Javobdagi",
+     "start": 1.423,
+     "end": 1.904
+    },
+    {
+     "text": "ma’no",
+     "start": 1.984,
+     "end": 2.204
+    },
+    {
+     "text": "matnda",
+     "start": 2.264,
+     "end": 2.545
+    },
+    {
+     "text": "boshqa",
+     "start": 2.565,
+     "end": 2.825
+    },
+    {
+     "text": "so‘zlar",
+     "start": 2.866,
+     "end": 3.186
+    },
+    {
+     "text": "bilan",
+     "start": 3.206,
+     "end": 3.387
+    },
+    {
+     "text": "ifodalanishi",
+     "start": 3.527,
+     "end": 4.148
+    },
+    {
+     "text": "mumkin.",
+     "start": 4.168,
+     "end": 4.429
+    }
+   ]
+  },
+  {
+   "id": "l13",
+   "file": "ep03/vo/l13.wav",
+   "duration": 1.937,
+   "placeholder": false,
+   "alignScore": 0.742,
+   "words": [
+    {
+     "text": "Shundan",
+     "start": 0.101,
+     "end": 0.444
+    },
+    {
+     "text": "keyin",
+     "start": 0.504,
+     "end": 0.706
+    },
+    {
+     "text": "Ali",
+     "start": 1.029,
+     "end": 1.13
+    },
+    {
+     "text": "usulini",
+     "start": 1.13,
+     "end": 1.352
+    },
+    {
+     "text": "o‘zgartirdi.",
+     "start": 1.372,
+     "end": 1.856
+    }
+   ]
+  },
+  {
+   "id": "l14",
+   "file": "ep03/vo/l14.wav",
+   "duration": 2.823,
+   "placeholder": false,
+   "alignScore": 0.859,
+   "words": [
+    {
+     "text": "Endi",
+     "start": 0.323,
+     "end": 0.464
+    },
+    {
+     "text": "u",
+     "start": 0.544,
+     "end": 0.565
+    },
+    {
+     "text": "shunchaki",
+     "start": 0.645,
+     "end": 0.988
+    },
+    {
+     "text": "o‘qimaydi",
+     "start": 1.049,
+     "end": 1.432
+    },
+    {
+     "text": "ma’lumotni",
+     "start": 1.734,
+     "end": 2.198
+    },
+    {
+     "text": "izlab",
+     "start": 2.238,
+     "end": 2.46
+    },
+    {
+     "text": "o‘qiydi!",
+     "start": 2.48,
+     "end": 2.742
+    }
+   ]
+  },
+  {
+   "id": "l15a",
+   "file": "ep03/vo/l15a.wav",
+   "duration": 0.474,
+   "placeholder": false,
+   "alignScore": 0.615,
+   "words": [
+    {
+     "text": "Sen-chi?",
+     "start": 0.062,
+     "end": 0.351
+    }
+   ]
+  },
+  {
+   "id": "l15b",
+   "file": null,
+   "duration": 4.38,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Readingda",
+     "start": 0.1,
+     "end": 0.727
+    },
+    {
+     "text": "eng",
+     "start": 0.727,
+     "end": 0.936
+    },
+    {
+     "text": "katta",
+     "start": 0.936,
+     "end": 1.284
+    },
+    {
+     "text": "muammoying",
+     "start": 1.284,
+     "end": 1.981
+    },
+    {
+     "text": "nima:",
+     "start": 1.981,
+     "end": 2.329
+    },
+    {
+     "text": "vaqtmi",
+     "start": 2.329,
+     "end": 2.747
+    },
+    {
+     "text": "yoki",
+     "start": 2.747,
+     "end": 3.026
+    },
+    {
+     "text": "notanish",
+     "start": 3.026,
+     "end": 3.583
+    },
+    {
+     "text": "so‘zlarmi?",
+     "start": 3.583,
+     "end": 4.28
+    }
+   ]
+  },
+  {
+   "id": "l16",
+   "file": "ep03/vo/l16.wav",
+   "duration": 0.879,
+   "placeholder": false,
+   "alignScore": 0.536,
+   "words": [
+    {
+     "text": "Izohlarda",
+     "start": 0.041,
+     "end": 0.511
+    },
+    {
+     "text": "yoz!",
+     "start": 0.532,
+     "end": 0.757
+    }
+   ]
+  },
+  {
+   "id": "l17",
+   "file": null,
+   "duration": 4.56,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Alining",
+     "start": 0.1,
+     "end": 0.577
+    },
+    {
+     "text": "keyingi",
+     "start": 0.577,
+     "end": 1.054
+    },
+    {
+     "text": "sarguzashtlarini",
+     "start": 1.054,
+     "end": 2.144
+    },
+    {
+     "text": "o‘tkazib",
+     "start": 2.144,
+     "end": 2.689
+    },
+    {
+     "text": "yubormaslik",
+     "start": 2.689,
+     "end": 3.438
+    },
+    {
+     "text": "uchun",
+     "start": 3.438,
+     "end": 3.779
+    },
+    {
+     "text": "obuna",
+     "start": 3.779,
+     "end": 4.119
+    },
+    {
+     "text": "bo‘l!",
+     "start": 4.119,
+     "end": 4.46
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+  "episode": "ep03",
+  "title": "ALI VA IELTS READING: VAQT QAYERGA KETDI?!",
+  "voice": {"engine": "voicelab", "voice_id": "voice_fa56cecf-9b0b-45ba-9ec3-494efb5b301f", "name": "Javohir — Bright presenter", "language": "uz"},
+  "fps": 30,
+  "scenes": [
+    {"id": "hook", "pre": 0.35},
+    {"id": "problem", "pre": 0.1},
+    {"id": "trap", "pre": 0.1},
+    {"id": "disaster", "pre": 0.15},
+    {"id": "reveal", "pre": 0.5},
+    {"id": "paraphrase", "pre": 0.2},
+    {"id": "improve", "pre": 0.2},
+    {"id": "ending", "pre": 0.2}
+  ],
+  "lines": [
+    {"id": "l01", "scene": "hook", "text": "MANA BU ALI!", "align": "mana bu ali", "highlight": ["ALI!"], "gapAfter": 0.15},
+    {"id": "l02", "scene": "hook", "text": "Bu safar u IELTS Readingni yengmoqchi!", "align": "bu safar u ayelts readingni yengmoqchi", "highlight": ["Readingni"], "gapAfter": 0.4},
+    {"id": "l03", "scene": "problem", "text": "Ali matnni ochdi-yu... birinchi qatordayoq to‘xtab qoldi!", "align": "ali matnni ochdi yu birinchi qatordayoq to'xtab qoldi", "highlight": ["to‘xtab", "qoldi!"], "gapAfter": 0.25},
+    {"id": "l04", "scene": "problem", "text": "However... Significant... Consequently...", "align": "however significant consequently", "highlight": ["However...", "Significant...", "Consequently..."], "gapAfter": 0.35, "lang": "en"},
+    {"id": "l05", "scene": "trap", "text": "Ali har bitta so‘zni tarjima qilyapti!", "align": "ali har bitta so'zni tarjima qilyapti", "highlight": ["tarjima"], "gapAfter": 0.35},
+    {"id": "l06", "scene": "trap", "text": "O‘n daqiqa o‘tdi...", "align": "o'n daqiqa o'tdi", "highlight": ["O‘n", "daqiqa"], "emphasis": "10 DAQIQA!", "gapAfter": 0.45},
+    {"id": "l07", "scene": "disaster", "text": "Ali esa hali ham birinchi savolda!", "align": "ali esa hali ham birinchi savolda", "highlight": ["birinchi", "savolda!"], "gapAfter": 0.25},
+    {"id": "l08", "scene": "disaster", "text": "TIK-TAK! TIK-TAK!", "align": "tik tak tik tak", "highlight": [], "gapAfter": 0.3},
+    {"id": "l09", "scene": "disaster", "text": "Ali hayron: Vaqt qayerga ketdi?!", "align": "ali hayron vaqt qayerga ketdi", "highlight": ["Vaqt", "qayerga", "ketdi?!"], "emphasis": "VAQT QAYERGA KETDI?!", "gapAfter": 0.7},
+    {"id": "l10", "scene": "reveal", "text": "Chunki, Ali, Readingda har bir so‘zni tarjima qilish shart emas!", "align": "chunki ali readingda har bir so'zni tarjima qilish shart emas", "highlight": ["shart", "emas!"], "emphasis": "HAR BIR SO‘ZNI TARJIMA QILMA!", "gapAfter": 0.35},
+    {"id": "l11", "scene": "reveal", "text": "Avval savolni o‘qi. Kalit so‘zlarni aniqla. Matndan kerakli ma’lumotni izla!", "align": "avval savolni o'qi kalit so'zlarni aniqla matndan kerakli ma'lumotni izla", "highlight": ["savolni", "Kalit", "izla!"], "gapAfter": 0.4},
+    {"id": "l12", "scene": "paraphrase", "text": "Lekin ehtiyot bo‘l! Javobdagi ma’no matnda boshqa so‘zlar bilan ifodalanishi mumkin.", "align": "lekin ehtiyot bo'l javobdagi ma'no matnda boshqa so'zlar bilan ifodalanishi mumkin", "highlight": ["ehtiyot", "boshqa", "so‘zlar"], "gapAfter": 0.45},
+    {"id": "l13", "scene": "improve", "text": "Shundan keyin Ali usulini o‘zgartirdi.", "align": "shundan keyin ali usulini o'zgartirdi", "highlight": ["o‘zgartirdi."], "gapAfter": 0.2},
+    {"id": "l14", "scene": "improve", "text": "Endi u shunchaki o‘qimaydi — ma’lumotni izlab o‘qiydi!", "align": "endi u shunchaki o'qimaydi ma'lumotni izlab o'qiydi", "highlight": ["izlab"], "gapAfter": 0.5},
+    {"id": "l15a", "scene": "ending", "text": "Sen-chi?", "align": "sen chi", "highlight": ["Sen-chi?"], "gapAfter": 0.15},
+    {"id": "l15b", "scene": "ending", "text": "Readingda eng katta muammoying nima: vaqtmi yoki notanish so‘zlarmi?", "align": "readingda eng katta muammoying nima vaqtmi yoki notanish so'zlarmi", "highlight": ["vaqtmi", "notanish", "so‘zlarmi?"], "gapAfter": 0.3},
+    {"id": "l16", "scene": "ending", "text": "Izohlarda yoz!", "align": "izohlarda yoz", "highlight": ["yoz!"], "gapAfter": 0.25},
+    {"id": "l17", "scene": "ending", "text": "Alining keyingi sarguzashtlarini o‘tkazib yubormaslik uchun obuna bo‘l!", "align": "alining keyingi sarguzashtlarini o'tkazib yubormaslik uchun obuna bo'l", "highlight": ["obuna", "bo‘l!"], "gapAfter": 1.6}
+  ]
+}
