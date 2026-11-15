@@ -1,0 +1,35 @@
+{
+  "name": "Bakhriddinov School",
+  "description": "English-learning shorts for Uzbek students (Multilevel & IELTS). Every video carries the official logo watermark exactly as in Episode 1: see README.md.",
+  "version": "1.0.0",
+
+  "colors": {
+    "primary": "#FF5C8A",
+    "primaryLight": "#FF8FAB",
+    "textDark": "#1A0A2E",
+    "textMedium": "#3A2A4E",
+    "textLight": "#6B5E7A",
+    "bgLight": "#FFFFFF",
+    "bgDark": "#000000",
+    "bgOverlay": "rgba(4, 12, 38, 0.62)",
+    "divider": "#E2E8F0",
+    "shadow": "rgba(0, 8, 30, 0.7)"
+  },
+
+  "fonts": {
+    "primary": "\"Space Grotesk\", system-ui, sans-serif",
+    "mono": "ui-monospace, SFMono-Regular, Menlo, monospace"
+  },
+
+  "logo": {
+    "file": "assets/logo.jpg",
+    "watermark": "assets/logo-watermark.png",
+    "watermarkPlacement": { "canvas": [1080, 1920], "corner": "top-right", "top": 104, "right": 44, "width": 252, "opacity": 0.85, "shadow": "drop-shadow(0 2px 6px rgba(0,8,30,0.7))", "frames": "all" }
+  },
+
+  "series": {
+    "language": "English narration, Uzbek (Latin) subtitles",
+    "voice": "Edge neural TTS en-US-AvaMultilingualNeural",
+    "format": "1080x1920, 30 fps, 30 s, -16 LUFS"
+  }
+}
