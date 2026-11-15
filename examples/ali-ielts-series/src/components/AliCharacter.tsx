@@ -25,7 +25,12 @@ export type ExpressionName =
   | 'panic'
   | 'idea'
   | 'focused'
-  | 'proud';
+  | 'proud'
+  | 'smug'
+  | 'suspicious'
+  | 'ecstatic'
+  | 'devastated'
+  | 'embarrassed';
 
 export type Expression = {
   /** brow height (-1 low … 1 high) */
@@ -62,6 +67,12 @@ export const EXPRESSIONS: Record<ExpressionName, Expression> = {
   idea: {browRaise: 1.1, browAngle: -4, browAsym: 0, eyeOpen: 1, eyeScale: 1.18, pupilScale: 1.2, smile: 0.8, mouthOpen: 0.45, mouthWidth: 1.05, blush: 0.4, sweat: 0},
   focused: {browRaise: -0.4, browAngle: 14, browAsym: 0.15, eyeOpen: 0.72, eyeScale: 1, pupilScale: 1.05, smile: 0.2, mouthOpen: 0, mouthWidth: 0.85, blush: 0.1, sweat: 0},
   proud: {browRaise: 0.4, browAngle: 6, browAsym: 0.5, eyeOpen: 0.7, eyeScale: 1.02, pupilScale: 1, smile: 1, mouthOpen: 0.35, mouthWidth: 1.4, blush: 0.55, sweat: 0},
+  // Episode 4 additions
+  smug: {browRaise: 0.3, browAngle: 10, browAsym: 0.9, eyeOpen: 0.5, eyeScale: 1, pupilScale: 1, smile: 0.95, mouthOpen: 0.05, mouthWidth: 1.3, blush: 0.35, sweat: 0},
+  suspicious: {browRaise: -0.3, browAngle: 10, browAsym: 1, eyeOpen: 0.45, eyeScale: 1, pupilScale: 0.9, smile: -0.2, mouthOpen: 0, mouthWidth: 0.7, blush: 0, sweat: 0},
+  ecstatic: {browRaise: 1.2, browAngle: -4, browAsym: 0, eyeOpen: 1, eyeScale: 1.2, pupilScale: 1.3, smile: 1, mouthOpen: 1, mouthWidth: 1.5, blush: 0.8, sweat: 0},
+  devastated: {browRaise: 0.5, browAngle: -26, browAsym: 0, eyeOpen: 0.9, eyeScale: 1.1, pupilScale: 1.2, smile: -1, mouthOpen: 0.3, mouthWidth: 1.1, blush: 0, sweat: 0.4},
+  embarrassed: {browRaise: 0.5, browAngle: -18, browAsym: 0.3, eyeOpen: 0.8, eyeScale: 1, pupilScale: 0.9, smile: 0.45, mouthOpen: 0.05, mouthWidth: 1.2, blush: 1, sweat: 1},
 };
 
 export type HandShape = 'fist' | 'point' | 'open' | 'pointFront' | 'thumbsUp';

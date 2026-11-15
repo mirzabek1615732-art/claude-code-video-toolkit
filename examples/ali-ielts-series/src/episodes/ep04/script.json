@@ -1,0 +1,290 @@
+{
+ "episode": "ep04",
+ "title": "ALI VA IELTS LISTENING: THIRTEENMI YOKI THIRTY?!",
+ "voice": {
+  "engine": "voicelab",
+  "voice_id": "voice_fa56cecf-9b0b-45ba-9ec3-494efb5b301f",
+  "name": "Javohir — Bright presenter",
+  "language": "uz"
+ },
+ "english_voice": {
+  "engine": "piper",
+  "model": "en_GB-alan-medium",
+  "note": "free local British English voice; lines e01–e03"
+ },
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "hook",
+   "pre": 0.35
+  },
+  {
+   "id": "begins",
+   "pre": 0.3
+  },
+  {
+   "id": "trap",
+   "pre": 0.2
+  },
+  {
+   "id": "celebrate",
+   "pre": 0.15
+  },
+  {
+   "id": "reality",
+   "pre": 0.5
+  },
+  {
+   "id": "punch",
+   "pre": 0.25
+  },
+  {
+   "id": "learn",
+   "pre": 0.4
+  },
+  {
+   "id": "ending",
+   "pre": 0.3
+  }
+ ],
+ "lines": [
+  {
+   "id": "l01",
+   "scene": "hook",
+   "text": "MANA BU ALI!",
+   "align": "mana bu ali",
+   "highlight": [
+    "ALI!"
+   ],
+   "gapAfter": 0.15
+  },
+  {
+   "id": "l02",
+   "scene": "hook",
+   "text": "Bu safar Ali IELTS Listening'dan sakkiz olaman deb o‘tiribdi!",
+   "align": "bu safar ali ayelts lisningdan sakkiz olaman deb o'tiribdi",
+   "highlight": [
+    "sakkiz"
+   ],
+   "gapAfter": 0.4
+  },
+  {
+   "id": "l03",
+   "scene": "begins",
+   "text": "Test boshlandi.",
+   "align": "test boshlandi",
+   "highlight": [
+    "boshlandi."
+   ],
+   "gapAfter": 0.5
+  },
+  {
+   "id": "l04",
+   "scene": "begins",
+   "text": "Quloqchinni taqdi, ruchkani tayyorladi.",
+   "align": "quloqchinni taqdi ruchkani tayyorladi",
+   "highlight": [],
+   "gapAfter": 0.5
+  },
+  {
+   "id": "l05",
+   "scene": "trap",
+   "text": "Audiodan eshitildi:",
+   "align": "audiodan eshitildi",
+   "highlight": [],
+   "gapAfter": 0.45
+  },
+  {
+   "id": "e01",
+   "scene": "trap",
+   "text": "Take bus number thirteen... Sorry, I mean thirty.",
+   "align": "take bus number thirteen sorry i mean thirty",
+   "highlight": [
+    "thirteen...",
+    "thirty."
+   ],
+   "gapAfter": 0.7,
+   "lang": "en"
+  },
+  {
+   "id": "l06",
+   "scene": "celebrate",
+   "text": "Ali esa birinchi raqamni eshitishi bilan...",
+   "align": "ali esa birinchi raqamni eshitishi bilan",
+   "highlight": [
+    "birinchi"
+   ],
+   "gapAfter": 0.3
+  },
+  {
+   "id": "l07",
+   "scene": "celebrate",
+   "text": "O‘N UCH! TOPDIM!",
+   "align": "o'n uch topdim",
+   "highlight": [
+    "O‘N",
+    "UCH!",
+    "TOPDIM!"
+   ],
+   "gapAfter": 0.3,
+   "emphasis": "O‘N UCH! TOPDIM!"
+  },
+  {
+   "id": "l08",
+   "scene": "celebrate",
+   "text": "Deb, ichida bayramni boshlab yubordi!",
+   "align": "deb ichida bayramni boshlab yubordi",
+   "highlight": [
+    "bayramni"
+   ],
+   "gapAfter": 0.9
+  },
+  {
+   "id": "l09",
+   "scene": "reality",
+   "text": "Lekin bir muammo bor...",
+   "align": "lekin bir muammo bor",
+   "highlight": [
+    "muammo"
+   ],
+   "gapAfter": 0.45
+  },
+  {
+   "id": "l10",
+   "scene": "reality",
+   "text": "Ali “sorry” degan joyini umuman eshitmabdi!",
+   "align": "ali sori degan joyini umuman eshitmabdi",
+   "highlight": [
+    "“sorry”"
+   ],
+   "gapAfter": 0.35
+  },
+  {
+   "id": "l11",
+   "scene": "reality",
+   "text": "Javob o‘n uch emas, O‘TTIZ edi!",
+   "align": "javob o'n uch emas o'ttiz edi",
+   "highlight": [
+    "O‘TTIZ"
+   ],
+   "gapAfter": 0.7,
+   "emphasis": "13 ❌ 30 ✅"
+  },
+  {
+   "id": "l12",
+   "scene": "punch",
+   "text": "Bechora Ali! Bitta raqam, ikkita umid!",
+   "align": "bechora ali bitta raqam ikkita umid",
+   "highlight": [
+    "Bechora",
+    "umid!"
+   ],
+   "gapAfter": 0.6
+  },
+  {
+   "id": "l13a",
+   "scene": "learn",
+   "text": "Aslida,",
+   "align": "aslida",
+   "highlight": [],
+   "gapAfter": 0.15
+  },
+  {
+   "id": "e02",
+   "scene": "learn",
+   "text": "thirTEEN",
+   "align": "thirteen",
+   "highlight": [
+    "thirTEEN"
+   ],
+   "gapAfter": 0.15,
+   "lang": "en"
+  },
+  {
+   "id": "l13b",
+   "scene": "learn",
+   "text": "so‘zida urg‘u oxirgi bo‘g‘inga,",
+   "align": "so'zida urg'u oxirgi bo'g'inga",
+   "highlight": [
+    "oxirgi"
+   ],
+   "gapAfter": 0.2
+  },
+  {
+   "id": "e03",
+   "scene": "learn",
+   "text": "THIRty",
+   "align": "thirty",
+   "highlight": [
+    "THIRty"
+   ],
+   "gapAfter": 0.15,
+   "lang": "en"
+  },
+  {
+   "id": "l13c",
+   "scene": "learn",
+   "text": "so‘zida esa birinchi bo‘g‘inga tushadi.",
+   "align": "so'zida esa birinchi bo'g'inga tushadi",
+   "highlight": [
+    "birinchi"
+   ],
+   "gapAfter": 0.5
+  },
+  {
+   "id": "l14",
+   "scene": "learn",
+   "text": "Lekin eng muhimi — javobni eshitganingdan keyin ham diqqatni yo‘qotma!",
+   "align": "lekin eng muhimi javobni eshitganingdan keyin ham diqqatni yo'qotma",
+   "highlight": [
+    "diqqatni",
+    "yo‘qotma!"
+   ],
+   "gapAfter": 0.35,
+   "emphasis": "DIQQAT BILAN TINGLA!"
+  },
+  {
+   "id": "l15",
+   "scene": "learn",
+   "text": "Chunki IELTS Listening'da javob o‘zgartirilishi mumkin!",
+   "align": "chunki ayelts lisningda javob o'zgartirilishi mumkin",
+   "highlight": [
+    "o‘zgartirilishi"
+   ],
+   "gapAfter": 0.6
+  },
+  {
+   "id": "l16",
+   "scene": "ending",
+   "text": "Sen ham bu ikki raqamni adashtirganmisan?",
+   "align": "sen ham bu ikki raqamni adashtirganmisan",
+   "highlight": [
+    "adashtirganmisan?"
+   ],
+   "gapAfter": 0.3
+  },
+  {
+   "id": "l17",
+   "scene": "ending",
+   "text": "Unda izohlarga o‘n uch yoki o‘ttiz deb yoz!",
+   "align": "unda izohlarga o'n uch yoki o'ttiz deb yoz",
+   "highlight": [
+    "o‘n",
+    "uch",
+    "o‘ttiz"
+   ],
+   "gapAfter": 0.4
+  },
+  {
+   "id": "l18",
+   "scene": "ending",
+   "text": "Ali bilan ingliz tilini o‘rganishda davom et!",
+   "align": "ali bilan ingliz tilini o'rganishda davom et",
+   "highlight": [
+    "davom",
+    "et!"
+   ],
+   "gapAfter": 1.8
+  }
+ ]
+}

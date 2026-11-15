@@ -8,8 +8,9 @@ Read this before making a new episode. Brand rules in `../CLAUDE.md` still apply
 | 1 | Ali — IELTS (first episode) | General / motivation | Posted | `src/Reel.tsx`, `src/episode/`, `src/scenes/` |
 | 2 | "Ali qaytdi!" — Speaking'dan 7.0 olmoqchi | Speaking (memorised answers vs real speaking practice) | Made outside this repo; reference copy only | `reference/ep02_ali_speaking.mp4` |
 | 3 | "Ali va IELTS Reading: Vaqt qayerga ketdi?!" | Reading (don't translate every word → question → keywords → scan; paraphrase) | Rendered; **voice missing for l15b, l17** (VoiceLab credits) | `src/episodes/ep03/`, `output/ep03_*` |
+| 4 | "Ali va IELTS Listening: thirteenmi yoki thirty?!" | Listening (thirTEEN/THIRty stress; corrections — keep listening) | Animation done; **Uzbek narration pending** (VoiceLab credits; only l01, l03 voiced). English lines via Piper en_GB | `src/episodes/ep04/`, `output/ep04_*` |
 
-Next ideas: Listening ("Ali va spelling tuzog‘i"), Writing Task 2 ("Ali 250 so‘zga yetolmadi"), Vocabulary ("Ali va 'very good' kasalligi").
+Next ideas: Listening 2 ("Ali va spelling tuzog‘i"), Writing Task 2 ("Ali 250 so‘zga yetolmadi"), Vocabulary ("Ali va 'very good' kasalligi").
 
 ## Character — never redesign
 - Ali = rigged SVG in `src/components/AliCharacter.tsx`: navy hair, blue hoodie with yellow button, dark trousers, white sneakers. Extend with new poses/expressions/items; don't change the drawing.
@@ -34,6 +35,7 @@ Next ideas: Listening ("Ali va spelling tuzog‘i"), Writing Task 2 ("Ali 250 so
 ## Audio rules (shared system: `src/audio/EpisodeAudio.tsx`)
 - Narrator is always loudest: narration −17 LUFS; music 20–25 dB under speech; SFX 10–18 dB under speech; auto-ducking from line spans.
 - Master to ≈ −16 LUFS integrated, true peak ≤ −1 dBTP (linear 2-pass loudnorm). Verify with stems + `scripts/measure_mix.py`.
+- English example lines: Piper `en_GB-alan-medium` (free, local; `pip install piper-tts`), one WAV per line in `vo_raw/` like any other line (`"lang": "en"` in script.json).
 - Voice: VoiceLab "Javohir — Bright Presenter" (id in `src/episodes/ep03/script.json`). No Edge TTS, no Higgsfield credits. Budget ≈ 1 credit per character (~900–1000 per episode).
 
 ## Workflow for a new episode

@@ -1,0 +1,758 @@
+{
+ "lines": [
+  {
+   "id": "l01",
+   "file": "ep04/vo/l01.wav",
+   "duration": 1.177,
+   "placeholder": false,
+   "alignScore": 0.808,
+   "words": [
+    {
+     "text": "MANA",
+     "start": 0.325,
+     "end": 0.548
+    },
+    {
+     "text": "BU",
+     "start": 0.609,
+     "end": 0.69
+    },
+    {
+     "text": "ALI!",
+     "start": 0.893,
+     "end": 1.075
+    }
+   ]
+  },
+  {
+   "id": "l02",
+   "file": null,
+   "duration": 3.96,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Bu",
+     "start": 0.1,
+     "end": 0.242
+    },
+    {
+     "text": "safar",
+     "start": 0.242,
+     "end": 0.597
+    },
+    {
+     "text": "Ali",
+     "start": 0.597,
+     "end": 0.809
+    },
+    {
+     "text": "IELTS",
+     "start": 0.809,
+     "end": 1.164
+    },
+    {
+     "text": "Listening'dan",
+     "start": 1.164,
+     "end": 2.086
+    },
+    {
+     "text": "sakkiz",
+     "start": 2.086,
+     "end": 2.512
+    },
+    {
+     "text": "olaman",
+     "start": 2.512,
+     "end": 2.938
+    },
+    {
+     "text": "deb",
+     "start": 2.938,
+     "end": 3.151
+    },
+    {
+     "text": "o‘tiribdi!",
+     "start": 3.151,
+     "end": 3.86
+    }
+   ]
+  },
+  {
+   "id": "l03",
+   "file": "ep04/vo/l03.wav",
+   "duration": 0.839,
+   "placeholder": false,
+   "alignScore": 0.952,
+   "words": [
+    {
+     "text": "Test",
+     "start": 0.02,
+     "end": 0.246
+    },
+    {
+     "text": "boshlandi.",
+     "start": 0.287,
+     "end": 0.717
+    }
+   ]
+  },
+  {
+   "id": "l04",
+   "file": null,
+   "duration": 2.64,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Quloqchinni",
+     "start": 0.1,
+     "end": 0.846
+    },
+    {
+     "text": "taqdi,",
+     "start": 0.846,
+     "end": 1.252
+    },
+    {
+     "text": "ruchkani",
+     "start": 1.252,
+     "end": 1.794
+    },
+    {
+     "text": "tayyorladi.",
+     "start": 1.794,
+     "end": 2.54
+    }
+   ]
+  },
+  {
+   "id": "l05",
+   "file": null,
+   "duration": 1.44,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Audiodan",
+     "start": 0.1,
+     "end": 0.651
+    },
+    {
+     "text": "eshitildi:",
+     "start": 0.651,
+     "end": 1.34
+    }
+   ]
+  },
+  {
+   "id": "e01",
+   "file": "ep04/vo/e01.wav",
+   "duration": 4.568,
+   "placeholder": false,
+   "alignScore": 0.807,
+   "words": [
+    {
+     "text": "Take",
+     "start": 0.02,
+     "end": 0.26
+    },
+    {
+     "text": "bus",
+     "start": 0.321,
+     "end": 0.561
+    },
+    {
+     "text": "number",
+     "start": 0.661,
+     "end": 0.982
+    },
+    {
+     "text": "thirteen...",
+     "start": 1.082,
+     "end": 1.663
+    },
+    {
+     "text": "Sorry,",
+     "start": 2.524,
+     "end": 2.825
+    },
+    {
+     "text": "I",
+     "start": 3.366,
+     "end": 3.386
+    },
+    {
+     "text": "mean",
+     "start": 3.466,
+     "end": 3.706
+    },
+    {
+     "text": "thirty.",
+     "start": 3.867,
+     "end": 4.327
+    }
+   ]
+  },
+  {
+   "id": "l06",
+   "file": null,
+   "duration": 2.88,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Ali",
+     "start": 0.1,
+     "end": 0.312
+    },
+    {
+     "text": "esa",
+     "start": 0.312,
+     "end": 0.523
+    },
+    {
+     "text": "birinchi",
+     "start": 0.523,
+     "end": 1.087
+    },
+    {
+     "text": "raqamni",
+     "start": 1.087,
+     "end": 1.581
+    },
+    {
+     "text": "eshitishi",
+     "start": 1.581,
+     "end": 2.216
+    },
+    {
+     "text": "bilan...",
+     "start": 2.216,
+     "end": 2.78
+    }
+   ]
+  },
+  {
+   "id": "l07",
+   "file": null,
+   "duration": 1.26,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "O‘N",
+     "start": 0.1,
+     "end": 0.327
+    },
+    {
+     "text": "UCH!",
+     "start": 0.327,
+     "end": 0.63
+    },
+    {
+     "text": "TOPDIM!",
+     "start": 0.63,
+     "end": 1.16
+    }
+   ]
+  },
+  {
+   "id": "l08",
+   "file": null,
+   "duration": 2.52,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Deb,",
+     "start": 0.1,
+     "end": 0.381
+    },
+    {
+     "text": "ichida",
+     "start": 0.381,
+     "end": 0.803
+    },
+    {
+     "text": "bayramni",
+     "start": 0.803,
+     "end": 1.365
+    },
+    {
+     "text": "boshlab",
+     "start": 1.365,
+     "end": 1.858
+    },
+    {
+     "text": "yubordi!",
+     "start": 1.858,
+     "end": 2.42
+    }
+   ]
+  },
+  {
+   "id": "l09",
+   "file": null,
+   "duration": 1.68,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Lekin",
+     "start": 0.1,
+     "end": 0.47
+    },
+    {
+     "text": "bir",
+     "start": 0.47,
+     "end": 0.692
+    },
+    {
+     "text": "muammo",
+     "start": 0.692,
+     "end": 1.136
+    },
+    {
+     "text": "bor...",
+     "start": 1.136,
+     "end": 1.58
+    }
+   ]
+  },
+  {
+   "id": "l10",
+   "file": null,
+   "duration": 2.88,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Ali",
+     "start": 0.1,
+     "end": 0.312
+    },
+    {
+     "text": "“sorry”",
+     "start": 0.312,
+     "end": 0.805
+    },
+    {
+     "text": "degan",
+     "start": 0.805,
+     "end": 1.158
+    },
+    {
+     "text": "joyini",
+     "start": 1.158,
+     "end": 1.581
+    },
+    {
+     "text": "umuman",
+     "start": 1.581,
+     "end": 2.004
+    },
+    {
+     "text": "eshitmabdi!",
+     "start": 2.004,
+     "end": 2.78
+    }
+   ]
+  },
+  {
+   "id": "l11",
+   "file": null,
+   "duration": 2.16,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Javob",
+     "start": 0.1,
+     "end": 0.477
+    },
+    {
+     "text": "o‘n",
+     "start": 0.477,
+     "end": 0.703
+    },
+    {
+     "text": "uch",
+     "start": 0.703,
+     "end": 0.929
+    },
+    {
+     "text": "emas,",
+     "start": 0.929,
+     "end": 1.306
+    },
+    {
+     "text": "O‘TTIZ",
+     "start": 1.306,
+     "end": 1.758
+    },
+    {
+     "text": "edi!",
+     "start": 1.758,
+     "end": 2.06
+    }
+   ]
+  },
+  {
+   "id": "l12",
+   "file": null,
+   "duration": 2.58,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Bechora",
+     "start": 0.1,
+     "end": 0.605
+    },
+    {
+     "text": "Ali!",
+     "start": 0.605,
+     "end": 0.893
+    },
+    {
+     "text": "Bitta",
+     "start": 0.893,
+     "end": 1.254
+    },
+    {
+     "text": "raqam,",
+     "start": 1.254,
+     "end": 1.687
+    },
+    {
+     "text": "ikkita",
+     "start": 1.687,
+     "end": 2.119
+    },
+    {
+     "text": "umid!",
+     "start": 2.119,
+     "end": 2.48
+    }
+   ]
+  },
+  {
+   "id": "l13a",
+   "file": null,
+   "duration": 0.72,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Aslida,",
+     "start": 0.1,
+     "end": 0.62
+    }
+   ]
+  },
+  {
+   "id": "e02",
+   "file": "ep04/vo/e02.wav",
+   "duration": 0.891,
+   "placeholder": false,
+   "alignScore": 0.344,
+   "words": [
+    {
+     "text": "thirTEEN",
+     "start": 0.041,
+     "end": 0.689
+    }
+   ]
+  },
+  {
+   "id": "l13b",
+   "file": null,
+   "duration": 2.16,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "so‘zida",
+     "start": 0.1,
+     "end": 0.59
+    },
+    {
+     "text": "urg‘u",
+     "start": 0.59,
+     "end": 0.94
+    },
+    {
+     "text": "oxirgi",
+     "start": 0.94,
+     "end": 1.36
+    },
+    {
+     "text": "bo‘g‘inga,",
+     "start": 1.36,
+     "end": 2.06
+    }
+   ]
+  },
+  {
+   "id": "e03",
+   "file": "ep04/vo/e03.wav",
+   "duration": 0.794,
+   "placeholder": false,
+   "alignScore": 0.197,
+   "words": [
+    {
+     "text": "THIRty",
+     "start": 0.02,
+     "end": 0.529
+    }
+   ]
+  },
+  {
+   "id": "l13c",
+   "file": null,
+   "duration": 2.64,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "so‘zida",
+     "start": 0.1,
+     "end": 0.588
+    },
+    {
+     "text": "esa",
+     "start": 0.588,
+     "end": 0.797
+    },
+    {
+     "text": "birinchi",
+     "start": 0.797,
+     "end": 1.355
+    },
+    {
+     "text": "bo‘g‘inga",
+     "start": 1.355,
+     "end": 1.982
+    },
+    {
+     "text": "tushadi.",
+     "start": 1.982,
+     "end": 2.54
+    }
+   ]
+  },
+  {
+   "id": "l14",
+   "file": null,
+   "duration": 4.5,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Lekin",
+     "start": 0.1,
+     "end": 0.447
+    },
+    {
+     "text": "eng",
+     "start": 0.447,
+     "end": 0.655
+    },
+    {
+     "text": "muhimi",
+     "start": 0.655,
+     "end": 1.071
+    },
+    {
+     "text": "—",
+     "start": 1.071,
+     "end": 1.21
+    },
+    {
+     "text": "javobni",
+     "start": 1.21,
+     "end": 1.695
+    },
+    {
+     "text": "eshitganingdan",
+     "start": 1.695,
+     "end": 2.666
+    },
+    {
+     "text": "keyin",
+     "start": 2.666,
+     "end": 3.013
+    },
+    {
+     "text": "ham",
+     "start": 3.013,
+     "end": 3.221
+    },
+    {
+     "text": "diqqatni",
+     "start": 3.221,
+     "end": 3.776
+    },
+    {
+     "text": "yo‘qotma!",
+     "start": 3.776,
+     "end": 4.4
+    }
+   ]
+  },
+  {
+   "id": "l15",
+   "file": null,
+   "duration": 3.6,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Chunki",
+     "start": 0.1,
+     "end": 0.508
+    },
+    {
+     "text": "IELTS",
+     "start": 0.508,
+     "end": 0.848
+    },
+    {
+     "text": "Listening'da",
+     "start": 0.848,
+     "end": 1.664
+    },
+    {
+     "text": "javob",
+     "start": 1.664,
+     "end": 2.004
+    },
+    {
+     "text": "o‘zgartirilishi",
+     "start": 2.004,
+     "end": 3.024
+    },
+    {
+     "text": "mumkin!",
+     "start": 3.024,
+     "end": 3.5
+    }
+   ]
+  },
+  {
+   "id": "l16",
+   "file": null,
+   "duration": 2.76,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Sen",
+     "start": 0.1,
+     "end": 0.313
+    },
+    {
+     "text": "ham",
+     "start": 0.313,
+     "end": 0.527
+    },
+    {
+     "text": "bu",
+     "start": 0.527,
+     "end": 0.669
+    },
+    {
+     "text": "ikki",
+     "start": 0.669,
+     "end": 0.953
+    },
+    {
+     "text": "raqamni",
+     "start": 0.953,
+     "end": 1.451
+    },
+    {
+     "text": "adashtirganmisan?",
+     "start": 1.451,
+     "end": 2.66
+    }
+   ]
+  },
+  {
+   "id": "l17",
+   "file": null,
+   "duration": 2.88,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Unda",
+     "start": 0.1,
+     "end": 0.398
+    },
+    {
+     "text": "izohlarga",
+     "start": 0.398,
+     "end": 1.068
+    },
+    {
+     "text": "o‘n",
+     "start": 1.068,
+     "end": 1.291
+    },
+    {
+     "text": "uch",
+     "start": 1.291,
+     "end": 1.514
+    },
+    {
+     "text": "yoki",
+     "start": 1.514,
+     "end": 1.812
+    },
+    {
+     "text": "o‘ttiz",
+     "start": 1.812,
+     "end": 2.259
+    },
+    {
+     "text": "deb",
+     "start": 2.259,
+     "end": 2.482
+    },
+    {
+     "text": "yoz!",
+     "start": 2.482,
+     "end": 2.78
+    }
+   ]
+  },
+  {
+   "id": "l18",
+   "file": null,
+   "duration": 3.0,
+   "placeholder": true,
+   "words": [
+    {
+     "text": "Ali",
+     "start": 0.1,
+     "end": 0.315
+    },
+    {
+     "text": "bilan",
+     "start": 0.315,
+     "end": 0.674
+    },
+    {
+     "text": "ingliz",
+     "start": 0.674,
+     "end": 1.105
+    },
+    {
+     "text": "tilini",
+     "start": 1.105,
+     "end": 1.536
+    },
+    {
+     "text": "o‘rganishda",
+     "start": 1.536,
+     "end": 2.326
+    },
+    {
+     "text": "davom",
+     "start": 2.326,
+     "end": 2.685
+    },
+    {
+     "text": "et!",
+     "start": 2.685,
+     "end": 2.9
+    }
+   ]
+  }
+ ]
+}

@@ -11,6 +11,8 @@ import {PortraitOptions} from './brand/PortraitOptions';
 import {TeacherCover} from './brand/TeacherCover';
 import {CoverOptions} from './brand/CoverOptions';
 import {EP03_DURATION, Ep03AliReading} from './episodes/ep03/composition';
+import {EP04_DURATION, Ep04AliListening} from './episodes/ep04/composition';
+import {Ep04Thumbnail} from './episodes/ep04/thumbnail/Ep04Thumbnail';
 import {Ep03Thumbnail} from './episodes/ep03/thumbnail/Ep03Thumbnail';
 import {introDuration, TeacherIntroReel, type IntroProps} from './brand/TeacherIntroReel';
 import {VIDEO} from './theme';
@@ -58,6 +60,8 @@ export const RemotionRoot: React.FC = () => (
   <>
     <Composition id="AliIeltsReel" component={Reel} durationInFrames={TIMELINE.durationInFrames} fps={FPS} width={VIDEO.width} height={VIDEO.height} />
     <Still id="Thumbnail" component={Thumbnail} width={VIDEO.width} height={VIDEO.height} />
+    <Composition id="Ep04AliListening" component={Ep04AliListening} durationInFrames={EP04_DURATION} fps={30} width={1080} height={1920} defaultProps={{stem: 'all' as const}} />
+    <Still id="Ep04Thumbnail" component={Ep04Thumbnail} width={1080} height={1920} />
     <Still id="Ep03Thumbnail" component={Ep03Thumbnail} width={1080} height={1920} />
     <Still id="HighlightCover" component={HighlightCover} width={VIDEO.width} height={VIDEO.height} defaultProps={{icon: 'results' as const, monogram: 'BS'}} />
     <Still
