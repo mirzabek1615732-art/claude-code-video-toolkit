@@ -16,7 +16,7 @@ Curated showcase projects demonstrating toolkit capabilities.
 | ds-free-schedule-demo | Remotion (custom) | [Digital Samba](https://digitalsamba.com) | 26s synthetic product demo with a SoulX narrator tile. All assets committed. | Intermediate |
 | digital-samba-skill-demo | Remotion product-demo | [Digital Samba](https://digitalsamba.com) | Marketing video for Claude Code skill | Intermediate |
 | sprint-review-cho-oyu | Remotion sprint-review | [Digital Samba](https://digitalsamba.com) | iOS sprint review for Digital Samba Mobile | Intermediate |
-| bakhriddinov-school | Remotion (custom) + Edge TTS | Bakhriddinov School | Four 30s vertical English-learning shorts with English narration, burned Uzbek subtitles and a school watermark. Sources, renders and subtitles committed. | Advanced |
+| bakhriddinov-school | Remotion (custom) + Edge TTS | Bakhriddinov School | Five 30s vertical English-learning shorts with English narration, burned Uzbek subtitles and a school watermark. Sources, renders and subtitles committed. | Advanced |
 
 > **Note:** Remotion examples include configs and documentation but NOT large media files — see each example's `ASSETS-NEEDED.md` for what to create. The moviepy examples (`quick-spot`, `data-viz-chart`) are fully self-contained and run end-to-end with `uv run build.py`.
 
