@@ -1,0 +1,39 @@
+1
+00:00:00,259 --> 00:00:02,188
+Ertalab juda sekin harakat qilaman deb o‘ylaysizmi?
+
+2
+00:00:02,188 --> 00:00:03,637
+Unda Venera bilan tanishing!
+
+3
+00:00:03,637 --> 00:00:07,735
+U o‘z o‘qi atrofida bir marta aylanishi uchun 243 Yer kuni kerak!
+
+4
+00:00:07,938 --> 00:00:11,261
+Quyosh atrofida aylanib chiqishiga esa bor-yo‘g‘i 225 kun ketadi!
+
+5
+00:00:11,500 --> 00:00:13,149
+Ha, uning bir marta to‘liq aylanishi
+
+6
+00:00:13,179 --> 00:00:15,577
+butun bir yilidan ham uzoqroq davom etadi!
+
+7
+00:00:16,094 --> 00:00:18,692
+Bu “at a snail’s pace”, ya’ni shilliqqurt tezligida!
+
+8
+00:00:18,692 --> 00:00:21,103
+Ma’nosi: juda sekin, imillab.
+
+9
+00:00:22,989 --> 00:00:25,826
+Keyingi safar do‘stingiz “Deyarli yetib keldim!” desa,
+
+10
+00:00:25,886 --> 00:00:28,833
+so‘rang: “Yer vaqti bilanmi... yoki Venera vaqti bilanmi?”
