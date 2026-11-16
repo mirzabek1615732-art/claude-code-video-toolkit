@@ -106,6 +106,7 @@ New rules:
 
 | Step | Repo | What it does for you |
 |---|---|---|
+| 0. Clean voice | **DeepFilterNet** (your fork) | Removes room noise from the *raw* voice before music is added (it would strip music too). Installed by the cloud environment's setup script: `deep-filter -D -m /opt/deepfilternet/models/DeepFilterNet3_onnx.tar.gz -o out/ voice.wav` (48 kHz WAV) |
 | 1. Cut | **video-use** | Transcribes, removes "umm" and pauses, picks the best take, adds 30 ms audio fades at every cut, checks every cut before showing you |
 | 2. LOG → normal | **color-grade-ai** | Detects LOG, applies your camera's conversion LUT, then a corrective LUT. Matches colour between shoots on different days |
 | 3. Look | **video-use** (`grade.py`) + **FFmpeg** | Final look per segment, e.g. warm, clean skin tones |
@@ -116,6 +117,8 @@ New rules:
 | 8. Long → short | **openshorts** | If you record a long lesson or live stream, cuts it into several Reels |
 | 9. Trend research | **Agent-Reach**, **yt-dlp** | Download reference Reels and read their transcripts to copy formats, not content |
 | 10. Covers | **Claude-Image-Production-Plugin**, **fabric.js** | Thumbnails / grid covers |
+
+Sound effects pack: `brands/mirzabek/sfx/` (11 effects and the rules for using them).
 
 Not useful for video: **hooks** (a React code library), **claude-mem** (chat memory), **SkillSpector**, and the **lemo-opuscar** repo. **jsoncut-skill** works only through a paid JsonCut API.
 
