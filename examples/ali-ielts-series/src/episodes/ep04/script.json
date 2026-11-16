@@ -2,9 +2,10 @@
  "episode": "ep04",
  "title": "ALI VA IELTS LISTENING: THIRTEENMI YOKI THIRTY?!",
  "voice": {
-  "engine": "voicelab",
-  "voice_id": "voice_fa56cecf-9b0b-45ba-9ec3-494efb5b301f",
-  "name": "Javohir — Bright presenter",
+  "engine": "elevenlabs",
+  "model": "eleven_v4",
+  "voice_id": "N3JyoAxu35CZFiDzoIoZ",
+  "name": "Ali narrator (Javohir clone)",
   "language": "uz"
  },
  "english_voice": {
@@ -16,15 +17,15 @@
  "scenes": [
   {
    "id": "hook",
-   "pre": 0.35
+   "pre": 0.25
   },
   {
    "id": "begins",
-   "pre": 0.3
+   "pre": 0.2
   },
   {
    "id": "trap",
-   "pre": 0.2
+   "pre": 0.15
   },
   {
    "id": "celebrate",
@@ -32,19 +33,19 @@
   },
   {
    "id": "reality",
-   "pre": 0.5
+   "pre": 0.35
   },
   {
    "id": "punch",
-   "pre": 0.25
+   "pre": 0.15
   },
   {
    "id": "learn",
-   "pre": 0.4
+   "pre": 0.25
   },
   {
    "id": "ending",
-   "pre": 0.3
+   "pre": 0.2
   }
  ],
  "lines": [
@@ -66,7 +67,7 @@
    "highlight": [
     "sakkiz"
    ],
-   "gapAfter": 0.4
+   "gapAfter": 0.25
   },
   {
    "id": "l03",
@@ -76,7 +77,7 @@
    "highlight": [
     "boshlandi."
    ],
-   "gapAfter": 0.5
+   "gapAfter": 0.3
   },
   {
    "id": "l04",
@@ -84,7 +85,7 @@
    "text": "Quloqchinni taqdi, ruchkani tayyorladi.",
    "align": "quloqchinni taqdi ruchkani tayyorladi",
    "highlight": [],
-   "gapAfter": 0.5
+   "gapAfter": 0.3
   },
   {
    "id": "l05",
@@ -92,7 +93,7 @@
    "text": "Audiodan eshitildi:",
    "align": "audiodan eshitildi",
    "highlight": [],
-   "gapAfter": 0.45
+   "gapAfter": 0.3
   },
   {
    "id": "e01",
@@ -103,7 +104,7 @@
     "thirteen...",
     "thirty."
    ],
-   "gapAfter": 0.7,
+   "gapAfter": 0.5,
    "lang": "en"
   },
   {
@@ -114,7 +115,7 @@
    "highlight": [
     "birinchi"
    ],
-   "gapAfter": 0.3
+   "gapAfter": 0.15
   },
   {
    "id": "l07",
@@ -126,7 +127,7 @@
     "UCH!",
     "TOPDIM!"
    ],
-   "gapAfter": 0.3,
+   "gapAfter": 0.2,
    "emphasis": "O‘N UCH! TOPDIM!"
   },
   {
@@ -137,7 +138,7 @@
    "highlight": [
     "bayramni"
    ],
-   "gapAfter": 0.9
+   "gapAfter": 0.6
   },
   {
    "id": "l09",
@@ -147,7 +148,7 @@
    "highlight": [
     "muammo"
    ],
-   "gapAfter": 0.45
+   "gapAfter": 0.3
   },
   {
    "id": "l10",
@@ -157,7 +158,7 @@
    "highlight": [
     "“sorry”"
    ],
-   "gapAfter": 0.35
+   "gapAfter": 0.2
   },
   {
    "id": "l11",
@@ -167,7 +168,7 @@
    "highlight": [
     "O‘TTIZ"
    ],
-   "gapAfter": 0.7,
+   "gapAfter": 0.5,
    "emphasis": "13 ❌ 30 ✅"
   },
   {
@@ -179,7 +180,7 @@
     "Bechora",
     "umid!"
    ],
-   "gapAfter": 0.6
+   "gapAfter": 0.4
   },
   {
    "id": "l13a",
@@ -229,7 +230,7 @@
    "highlight": [
     "birinchi"
    ],
-   "gapAfter": 0.5
+   "gapAfter": 0.3
   },
   {
    "id": "l14",
@@ -240,7 +241,7 @@
     "diqqatni",
     "yo‘qotma!"
    ],
-   "gapAfter": 0.35,
+   "gapAfter": 0.2,
    "emphasis": "DIQQAT BILAN TINGLA!"
   },
   {
@@ -251,7 +252,7 @@
    "highlight": [
     "o‘zgartirilishi"
    ],
-   "gapAfter": 0.6
+   "gapAfter": 0.35
   },
   {
    "id": "l16",
@@ -261,7 +262,7 @@
    "highlight": [
     "adashtirganmisan?"
    ],
-   "gapAfter": 0.3
+   "gapAfter": 0.2
   },
   {
    "id": "l17",
@@ -273,7 +274,7 @@
     "uch",
     "o‘ttiz"
    ],
-   "gapAfter": 0.4
+   "gapAfter": 0.25
   },
   {
    "id": "l18",
@@ -284,7 +285,7 @@
     "davom",
     "et!"
    ],
-   "gapAfter": 1.8
+   "gapAfter": 1.4
   }
  ]
 }

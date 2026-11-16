@@ -11,15 +11,12 @@
 - `thumbnail/Ep03Thumbnail.tsx`.
 - Audio: raw VoiceLab clips `public/ep03/vo_raw/`, processed clips `public/ep03/vo/`, SFX/music `public/audio/norm/`.
 
-## Voice (VoiceLab, voice "Javohir — Bright Presenter", id in `script.json`)
-Generation IDs are cached in `voicelab_generations.json`. **l15b and l17 are still placeholders** (VoiceLab credits ran out):
-the captions run on estimated timing and no voice plays there.
-
-To finish them:
-1. Generate the two lines with the same voice in VoiceLab (text is in `script.json`).
-2. Save the WAVs as `public/ep03/vo_raw/l15b.wav` and `public/ep03/vo_raw/l17.wav`, record the IDs in `voicelab_generations.json`.
-3. `python3 scripts/episode_voice.py ep03` (trims, normalises to −17 LUFS, aligns words, rewrites `timing.json`).
-4. Re-render (below). Scenes re-time automatically.
+## Voice
+Lines l01–l16 are Javohir (VoiceLab, id in `script.json`; generation IDs in `voicelab_generations.json`).
+The last two lines (l15b, l17) were made with the ElevenLabs clone of Javohir (`scripts/elevenlabs_lines.py ep03`,
+voice "Ali narrator (Javohir clone)") because VoiceLab credits ran out; they sound close but not identical.
+To redo them with real Javohir: save VoiceLab WAVs as `public/ep03/vo_raw/l15b.wav` / `l17.wav`, run
+`python3 scripts/episode_voice.py ep03`, re-render.
 
 ## Render
 ```bash
