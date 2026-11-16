@@ -17,6 +17,20 @@ or not, with no credit line. A preview video (21 s, each name shown while it pla
 | `riser.mp3` | Just before a reveal: put its end exactly on the reveal | 1.6 s |
 | `impact.mp3` | The big result lands ("5.5 → 7.5") | 0.9 s |
 
+## Recorded-quality whooshes (`recorded/`)
+
+Generated with ElevenLabs sound effects (Nov 2026), peaks set to -1 dB. Prefer these over the synthesized whoosh and
+swoosh above.
+
+| File | Character | Length |
+|---|---|---|
+| `recorded/whoosh_scene_change_1.mp3` | Clean cinematic air swish | 1.0 s |
+| `recorded/whoosh_scene_change_2.mp3` | Deep, airy, low sweep | 1.2 s |
+| `recorded/whoosh_scene_change_3.mp3` | Crisp, punchy social-media transition | 0.9 s |
+| `recorded/swoosh_fast_1.mp3` | Short, light swipe for a sliding label | 0.5 s |
+| `recorded/swoosh_fast_2.mp3` | Sharp whip | 0.5 s |
+| `recorded/swoosh_fast_3.mp3` | Subtle UI slide | 0.6 s |
+
 ## Rules
 
 - **Under the voice, not over it.** Mix effects 15 to 25 dB quieter than speech; never louder than your voice.
