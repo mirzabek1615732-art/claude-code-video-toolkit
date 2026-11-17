@@ -5,7 +5,7 @@ each better than the last. The phrases fill in under each level as he speaks. Th
 content, wording and look below are original.
 
 **Format:** one person, one spot, talking head. Five answers to **one** Speaking Part 1 question, from basic to
-natural, with a short Uzbek joke at the end of 9.0. **Length:** about 34 s. **Goal:** rewatches (people replay to hear the difference), comments (they write which
+natural, with a short Uzbek joke at the end of 9.0. **Length:** about 36 s. **Goal:** rewatches (people replay to hear the difference), comments (they write which
 level they speak at) and sends.
 **Why it works:** the viewer *hears* the jump from 5.0 to 9.0, so it teaches without a lecture. The empty 9.0 card
 sits on screen from the start, which makes people wait for it.
@@ -47,14 +47,16 @@ detail.** (Same lesson as Quiz 01, so the series feels connected.)
 **Edit per level:** the card flips to white while you speak, the answer text appears under it word by word,
 a rising `ding` plays on the card (one note higher each level). On 9.0 a short `riser` leads into an `impact`.
 
-### 0:25 to 0:29 · The joke: "Ona chaqirsa" (mom calls)
+### 0:25 to 0:32 · The joke: "Ona chaqirsa" (mom calls)
 Right after the 9.0 answer, while you are still holding the confident 9.0 face:
 1. **A voice from off camera (you, in a funny high "mom" voice, no need to be on camera):**
    "**Bolam, telefonni qo'y, ovqatga kel!**" *(My child, put the phone down, come and eat!)*
-   **Edit:** the 9.0 card turns **red and flips to 5.0** with a buzzer and a little bump. The ladder dims, the mom
-   line shows in a big box.
-2. **You (defeated, small voice, slowly turning your head toward the voice):** "Ha, ona..." *(Yes, mom...)*
-3. **Caption box:** "**Ona chaqirsa, 9.0 ham 5.0 bo'ladi** 😅" *(When mom calls, even a 9.0 becomes a 5.0)*
+   **Edit:** the 9.0 card turns **red and flips to 5.0** with a little bump. The ladder dims, the mom line shows
+   in a big box. (No buzzer: the next sound replaces it.)
+2. **Awkward pause (about 3 s):** the moment the mom's line ends, the sound **"Awkward Pause 02"** plays. You stay
+   still, look into the lens with a blank face, and say nothing. This silence is the joke, so don't cut it short.
+3. **You (defeated, small voice, slowly turning your head toward the voice):** "Ha, ona..." *(Yes, mom...)*
+4. **Caption box:** "**Ona chaqirsa, 9.0 ham 5.0 bo'ladi** 😅" *(When mom calls, even a 9.0 becomes a 5.0)*
 
 Why it works: it ties the joke to the ladder you just built, every Uzbek viewer has lived it, and the card flip makes
 people replay to catch it. It also makes the video shareable ("this is me 😂").
@@ -65,7 +67,7 @@ people replay to catch it. It also makes the video shareable ("this is me 😂")
 - **Friend version:** you read the 9.0 answer, then a friend's voice: "**Bro, nima deding? Tushunmadim 😅**" *(Bro,
   what did you say? I didn't understand)*; caption: "**9.0 ni hamma ham tushunmaydi**" *(Not everyone understands 9.0)*
 
-### 0:29 to 0:34 · Call to action (to camera)
+### 0:32 to 0:36 · Call to action (to camera)
 **You:** "Siz qaysi darajada gapirasiz? Kommentda raqamini yozing: 5, 6, 7, 8 yoki 9. Har kuni yangi daraja: obuna bo'ling."
 *(Which level do you speak at? Write the number in the comments: 5, 6, 7, 8 or 9. A new ladder every day: follow.)*
 **On screen:** `5? 6? 7? 8? 9?` then `Har kuni yangi daraja: obuna bo'ling` + the Bakhriddinov School end frame.
