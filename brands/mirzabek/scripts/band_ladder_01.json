@@ -10,6 +10,7 @@
     {"band": "9.0", "text": "Absolutely, it's second nature. I just try not to let the hours vanish.", "start": 19.8, "end": 24.6}
   ],
   "gag": {"band": "9.0", "to": "5.0", "at": 25.1},
+  "pause_sfx": {"file": "awkward_pause_2.mp3", "at": "after_mom_line", "volume": 0.7},
   "captions": [
     {"text": "BOLAM, TELEFONNI QO'Y,\nOVQATGA KEL!", "start": 24.9, "end": 26.9},
     {"text": "ONA CHAQIRSA,\n9.0 HAM 5.0 BO'LADI", "start": 27.0, "end": 28.6}

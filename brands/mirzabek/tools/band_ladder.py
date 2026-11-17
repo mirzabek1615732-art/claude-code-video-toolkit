@@ -229,7 +229,13 @@ def sfx_events(cfg, sfx):
     last = cfg["levels"][-1]["start"]
     ev.append((sfx / "riser.mp3", max(0, last - 1.6), 0.45, 0))
     ev.append((sfx / "impact.mp3", last, 0.6, 0))
-    if cfg.get("gag"):
+    ps = cfg.get("pause_sfx")  # a custom "awkward pause" sound that replaces the buzzer on the card flip
+    if ps and (sfx / ps["file"]).exists():
+        at = cfg["captions"][0]["end"] if ps["at"] == "after_mom_line" else float(ps["at"])
+        ev.append((sfx / ps["file"], at, ps.get("volume", 0.7), 0))
+    elif cfg.get("gag"):
+        if ps:
+            print(f"warning: {ps['file']} not found in {sfx}, using the buzzer instead")
         ev.append((sfx / "wrong_buzzer.mp3", cfg["gag"]["at"], 0.5, 0))
     for cap in cfg.get("captions", []):
         ev.append((sfx / "pop_text.mp3", cap["start"], 0.4, 0))
