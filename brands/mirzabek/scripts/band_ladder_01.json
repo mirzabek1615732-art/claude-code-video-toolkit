@@ -1,0 +1,18 @@
+{
+  "question": "DO YOU OFTEN USE SOCIAL MEDIA?",
+  "duration": 30.0,
+  "cards_in": [0.8, 1.0, 1.2, 1.4, 1.6],
+  "levels": [
+    {"band": "5.0", "text": "Yes. I use Instagram. It is good.", "start": 3.4, "end": 5.6},
+    {"band": "6.0", "text": "Yes, every day, because it is interesting.", "start": 6.2, "end": 9.2},
+    {"band": "7.0", "text": "Yes, quite a lot, mainly to keep in touch with friends.", "start": 9.8, "end": 13.6},
+    {"band": "8.0", "text": "Honestly, more than I'd like to admit, but it keeps me connected.", "start": 14.2, "end": 18.8},
+    {"band": "9.0", "text": "Absolutely, it's second nature. I just try not to let the hours vanish.", "start": 19.8, "end": 24.6}
+  ],
+  "cta": {
+    "title": "SIZ QAYSI DARAJADA GAPIRASIZ?",
+    "numbers": ["5", "6", "7", "8", "9"],
+    "follow": "HAR KUNI YANGI DARAJA → OBUNA BO'LING",
+    "start": 25.0
+  }
+}
