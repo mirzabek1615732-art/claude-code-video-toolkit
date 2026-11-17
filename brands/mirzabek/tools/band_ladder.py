@@ -76,6 +76,19 @@ def box(text, size, fill, ink, pad=(30, 18), radius=26, min_w=0, max_w=1000):
     return im
 
 
+def circle(text, d=150):
+    """A white round button with a short word or number (the text shrinks to fit)."""
+    probe = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    size = 84
+    while size > 24 and probe.textlength(text, font=font(size)) > d - 30:
+        size -= 2
+    im = Image.new("RGBA", (d, d), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(im)
+    dr.ellipse((0, 0, d - 1, d - 1), fill=WHITE)
+    dr.text((d // 2, d // 2 + 2), text, font=font(size), fill=(0, 0, 0, 255), anchor="mm")
+    return im
+
+
 def scaled(im, s):
     return im.resize((max(1, int(im.width * s)), max(1, int(im.height * s))), Image.LANCZOS)
 
@@ -102,13 +115,14 @@ class Ladder:
         self.q = box(cfg["question"], 40, BLACK, WHITE, min_w=0)
         self.cards = {}
         for lv in cfg["levels"]:
-            label = "BAND " + lv["band"]
-            self.cards[lv["band"]] = (box(label, 54, BLACK, WHITE, min_w=CARD_W), box(label, 54, WHITE, (0, 0, 0, 255), min_w=CARD_W))
+            label = lv.get("label", "BAND " + lv["band"])  # "label" overrides the default card text
+            self.cards[lv["band"]] = (box(label, 54, BLACK, WHITE, min_w=CARD_W, max_w=CARD_W),
+                                       box(label, 54, WHITE, (0, 0, 0, 255), min_w=CARD_W, max_w=CARD_W))
         for lv in cfg["levels"]:
             lv["_words"] = layout(lv["text"])
         c = cfg["cta"]
         self.cta_title = box(c["title"], 60, BLACK, WHITE, radius=30)
-        self.cta_nums = [box(n, 84, WHITE, (0, 0, 0, 255), pad=(0, 33), radius=75, min_w=150) for n in c["numbers"]]
+        self.cta_nums = [circle(n) for n in c["numbers"]]
         self.cta_follow = box(c["follow"], 40, BLACK, WHITE)
         self.f_text = font(TEXT_SIZE)
         self.gag = cfg.get("gag")  # a level card flips to another band at a moment (the "mom calls" joke)

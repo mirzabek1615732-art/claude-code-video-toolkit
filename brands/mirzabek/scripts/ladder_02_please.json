@@ -1,0 +1,18 @@
+{
+  "question": "5 WAYS TO SAY \"PLEASE FOLLOW\"",
+  "duration": 28.0,
+  "cards_in": [0.8, 1.0, 1.2, 1.4, 1.6],
+  "levels": [
+    {"band": "B1", "label": "B1 DARAJA", "text": "Please follow my page.", "start": 4.0, "end": 5.8},
+    {"band": "B2", "label": "B2 DARAJA", "text": "Could you follow my page, please?", "start": 6.4, "end": 8.8},
+    {"band": "C1", "label": "C1 DARAJA", "text": "I'd really appreciate it if you could follow my page.", "start": 9.4, "end": 13.0},
+    {"band": "C2", "label": "C2 DARAJA", "text": "It would mean the world to me if you gave my page a follow.", "start": 13.6, "end": 18.0},
+    {"band": "UZ", "label": "O'ZBEK DARAJASI", "text": "Bitta padderjka qilvoring endi oka.", "start": 19.0, "end": 22.0}
+  ],
+  "cta": {
+    "title": "SIZ QAYSI BIRINI ISHLATARDINGIZ?",
+    "numbers": ["B1", "B2", "C1", "C2", "OKA"],
+    "follow": "OBUNA BO'LING, ILTIMOS",
+    "start": 22.6
+  }
+}
