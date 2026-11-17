@@ -60,16 +60,19 @@ def fade(im, a):
 
 def box(text, size, fill, ink, pad=(30, 18), radius=26, min_w=0, max_w=1000):
     probe = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    lines = text.split("\n")  # "\n" makes a two-line box
     f = font(size)
-    while size > 24 and probe.textlength(text, font=f) + pad[0] * 2 > max_w:  # never wider than the screen
+    while size > 24 and max(probe.textlength(s, font=f) for s in lines) + pad[0] * 2 > max_w:  # never wider than the screen
         size -= 2
         f = font(size)
-    tw = int(probe.textlength(text, font=f))
-    w, h = max(tw + pad[0] * 2, min_w), size + pad[1] * 2
+    tw = int(max(probe.textlength(s, font=f) for s in lines))
+    step = size + 10
+    w, h = max(tw + pad[0] * 2, min_w), step * len(lines) - 10 + pad[1] * 2
     im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     d.rounded_rectangle((0, 0, w - 1, h - 1), radius=radius, fill=fill)
-    d.text((w // 2, h // 2 + 2), text, font=f, fill=ink, anchor="mm")
+    for i, s in enumerate(lines):
+        d.text((w // 2, pad[1] + size // 2 + i * step + 2), s, font=f, fill=ink, anchor="mm")
     return im
 
 
@@ -108,6 +111,10 @@ class Ladder:
         self.cta_nums = [box(n, 84, WHITE, (0, 0, 0, 255), pad=(0, 33), radius=75, min_w=150) for n in c["numbers"]]
         self.cta_follow = box(c["follow"], 40, BLACK, WHITE)
         self.f_text = font(TEXT_SIZE)
+        self.gag = cfg.get("gag")  # a level card flips to another band at a moment (the "mom calls" joke)
+        if self.gag:
+            self.gag_card = box("BAND " + self.gag["to"], 54, (220, 60, 60, 255), WHITE, min_w=CARD_W)
+        self.caps = [(c, box(c["text"], 58, WHITE, (0, 0, 0, 255), radius=30, max_w=980)) for c in cfg.get("captions", [])]
 
     def silhouette(self):
         im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -125,8 +132,11 @@ class Ladder:
             im = self.silhouette()
         cta = cfg["cta"]
         ladder = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        ladder_alpha = 1.0 - clamp01((t - cta["start"]) / 0.4)
-        if ladder_alpha > 0:
+        gagl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        base_alpha = 1.0 - clamp01((t - cta["start"]) / 0.4)
+        talking = any(c["start"] <= t < c["end"] + 0.2 for c, _ in self.caps)
+        ladder_alpha = base_alpha * (0.4 if talking else 1.0)  # the ladder steps back while a joke caption is up
+        if base_alpha > 0:
             put(ladder, self.q, CARD_X, 200)
             for i, lv in enumerate(cfg["levels"]):
                 t_in = cfg["cards_in"][i]
@@ -138,10 +148,14 @@ class Ladder:
                 black, white = self.cards[lv["band"]]
                 card = white if active else black
                 s = 1.06 if active else 1.0
+                target = ladder
+                if self.gag and lv["band"] == self.gag["band"] and t >= self.gag["at"]:
+                    card, target = self.gag_card, gagl  # flipped card stays at full strength
+                    s = 1.0 + 0.14 * (1 - clamp01((t - self.gag["at"]) / 0.35))  # a quick bump on the flip
                 card = scaled(card, s)
                 slide = int((1 - ease_back(p)) * -260)
                 a = p if not (t < lv["start"] - 0.1) else p * 0.6  # waiting cards stay dimmer
-                put(ladder, fade(card, a), CARD_X + slide - (card.width - CARD_W) // 2, y - (card.height - CARD_H) // 2)
+                put(target, fade(card, a), CARD_X + slide - (card.width - CARD_W) // 2, y - (card.height - CARD_H) // 2)
                 if t >= lv["start"]:
                     d = ImageDraw.Draw(ladder)
                     n_words = len(lv["_words"])
@@ -155,6 +169,12 @@ class Ladder:
                             d.text((CARD_X + wx, y + CARD_H + 16 + wy), word, font=self.f_text, fill=WHITE,
                                    stroke_width=5, stroke_fill=(0, 0, 0, 255))
             im.alpha_composite(fade(ladder, ladder_alpha))
+            im.alpha_composite(fade(gagl, base_alpha))
+        for c, cb in self.caps:
+            if c["start"] <= t < c["end"] + 0.2 and base_alpha > 0:
+                pc = clamp01((t - c["start"]) / 0.25)
+                out = 1.0 - clamp01((t - c["end"]) / 0.2)
+                put(im, fade(scaled(cb, 0.8 + 0.2 * ease_back(pc)), pc * out), (W - cb.width) // 2, 960)
         if t >= cta["start"]:
             lt = t - cta["start"]
             p = clamp01(lt / 0.35)
@@ -209,6 +229,10 @@ def sfx_events(cfg, sfx):
     last = cfg["levels"][-1]["start"]
     ev.append((sfx / "riser.mp3", max(0, last - 1.6), 0.45, 0))
     ev.append((sfx / "impact.mp3", last, 0.6, 0))
+    if cfg.get("gag"):
+        ev.append((sfx / "wrong_buzzer.mp3", cfg["gag"]["at"], 0.5, 0))
+    for cap in cfg.get("captions", []):
+        ev.append((sfx / "pop_text.mp3", cap["start"], 0.4, 0))
     c = cfg["cta"]
     for i in range(len(c["numbers"])):
         ev.append((sfx / "pop_text.mp3", c["start"] + 0.5 + i * 0.15, 0.4, 0))
