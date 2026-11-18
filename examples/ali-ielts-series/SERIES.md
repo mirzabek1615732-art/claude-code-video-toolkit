@@ -9,8 +9,13 @@ Read this before making a new episode. Brand rules in `../CLAUDE.md` still apply
 | 2 | "Ali qaytdi!" — Speaking'dan 7.0 olmoqchi | Speaking (memorised answers vs real speaking practice) | Made outside this repo; reference copy only | `reference/ep02_ali_speaking.mp4` |
 | 3 | "Ali va IELTS Reading: Vaqt qayerga ketdi?!" | Reading (don't translate every word → question → keywords → scan; paraphrase) | Rendered, fully narrated (last 2 lines use the ElevenLabs Javohir clone) | `src/episodes/ep03/`, `output/ep03_*` |
 | 4 | "Ali va IELTS Listening: thirteenmi yoki thirty?!" | Listening (thirTEEN/THIRty stress; corrections — keep listening) | Rendered, fully narrated with the ElevenLabs Javohir clone; English lines via Piper en_GB | `src/episodes/ep04/`, `output/ep04_*` |
+| 5 | "Ali va IELTS Writing: professor bo‘lib ketgan Ali!" | Writing (clarity over showy words; use vocabulary accurately) | Animation, captions, thumbnail done; **voices pending** (VoiceLab credits empty, ElevenLabs outage) — not rendered | `src/episodes/ep05/` |
 
 Next ideas: Listening 2 ("Ali va spelling tuzog‘i"), Writing Task 2 ("Ali 250 so‘zga yetolmadi"), Vocabulary ("Ali va 'very good' kasalligi").
+
+## Recurring cast
+- **Ustoz** (the writing teacher), `src/components/TeacherCharacter.tsx`: grey hair, glasses, moustache, brown jacket, calm and serious. Voice: ElevenLabs "Mirjalol - Calm, Confident".
+- Ali's own voice (when he speaks in-scene): ElevenLabs "Abror - Casual"; the narrator stays Javohir / the Javohir clone.
 
 ## Character — never redesign
 - Ali = rigged SVG in `src/components/AliCharacter.tsx`: navy hair, blue hoodie with yellow button, dark trousers, white sneakers. Extend with new poses/expressions/items; don't change the drawing.

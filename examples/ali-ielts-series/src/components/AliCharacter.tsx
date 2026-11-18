@@ -30,7 +30,9 @@ export type ExpressionName =
   | 'suspicious'
   | 'ecstatic'
   | 'devastated'
-  | 'embarrassed';
+  | 'embarrassed'
+  | 'professor'
+  | 'blank';
 
 export type Expression = {
   /** brow height (-1 low … 1 high) */
@@ -73,6 +75,9 @@ export const EXPRESSIONS: Record<ExpressionName, Expression> = {
   ecstatic: {browRaise: 1.2, browAngle: -4, browAsym: 0, eyeOpen: 1, eyeScale: 1.2, pupilScale: 1.3, smile: 1, mouthOpen: 1, mouthWidth: 1.5, blush: 0.8, sweat: 0},
   devastated: {browRaise: 0.5, browAngle: -26, browAsym: 0, eyeOpen: 0.9, eyeScale: 1.1, pupilScale: 1.2, smile: -1, mouthOpen: 0.3, mouthWidth: 1.1, blush: 0, sweat: 0.4},
   embarrassed: {browRaise: 0.5, browAngle: -18, browAsym: 0.3, eyeOpen: 0.8, eyeScale: 1, pupilScale: 0.9, smile: 0.45, mouthOpen: 0.05, mouthWidth: 1.2, blush: 1, sweat: 1},
+  // Episode 5 additions
+  professor: {browRaise: 0.5, browAngle: 4, browAsym: 1, eyeOpen: 0.62, eyeScale: 1, pupilScale: 0.95, smile: 0.55, mouthOpen: 0.05, mouthWidth: 0.9, blush: 0.2, sweat: 0},
+  blank: {browRaise: 0.6, browAngle: -2, browAsym: 0, eyeOpen: 1, eyeScale: 1.05, pupilScale: 0.6, smile: -0.1, mouthOpen: 0.35, mouthWidth: 0.6, blush: 0, sweat: 0.5},
 };
 
 export type HandShape = 'fist' | 'point' | 'open' | 'pointFront' | 'thumbsUp';
@@ -195,6 +200,12 @@ type Props = {
   /** 0…1 glow on the phone screen (lights up Ali's face too) */
   phoneGlow?: number;
   headphones?: boolean;
+  /** Episode 5: professor glasses; value = lens size (1 normal round glasses, 1.6 comically oversized) */
+  glasses?: number;
+  /** Episode 5: graduation cap on the head */
+  gradCap?: boolean;
+  /** Episode 5: star-shaped pupils (dazzled) */
+  starEyes?: boolean;
   /** 0…1 extra mouth flap (talking) */
   talk?: number;
   /** override automatic blinking (0 open … 1 closed). */
@@ -219,6 +230,17 @@ const limb = (ox: number, oy: number, a1: number, a2: number, l1: number, l2: nu
   const ey = jy + Math.cos(B) * l2;
   return {jx, jy, ex, ey, endAngle: (a1 + a2) * side};
 };
+
+/** Graduation cap (mortarboard). Origin = where it sits on the head; also used on its own when it falls off. */
+export const GradCap: React.FC<{x?: number; y?: number; tilt?: number; tassel?: number}> = ({x = 0, y = 0, tilt = 0, tassel = 0}) => (
+  <g transform={`translate(${x} ${y}) rotate(${tilt})`}>
+    <path d="M -70 -6 L -66 30 Q 0 52 66 30 L 70 -6 Z" fill={COLORS.navy} stroke={COLORS.ink} strokeWidth={5} strokeLinejoin="round" />
+    <path d="M -150 -30 L 0 -78 L 150 -30 L 0 18 Z" fill="#1F2937" stroke={COLORS.ink} strokeWidth={6} strokeLinejoin="round" />
+    <circle cx={0} cy={-30} r={9} fill={COLORS.yellow} stroke={COLORS.ink} strokeWidth={3} />
+    <path d={`M 0 -30 Q ${70 + tassel * 10} -20 ${96 + tassel * 6} 30`} stroke={COLORS.yellow} strokeWidth={7} fill="none" strokeLinecap="round" />
+    <rect x={86 + tassel * 6} y={28} width={20} height={34} rx={6} fill={COLORS.yellow} stroke={COLORS.ink} strokeWidth={3} />
+  </g>
+);
 
 const autoBlink = (raw: number) => {
   // deterministic irregular blinking: every 70–110 frames, 6 frames long.
@@ -354,6 +376,9 @@ export const AliCharacter: React.FC<Props> = ({
   itemL = 'none',
   phoneGlow = 0,
   headphones = false,
+  glasses = 0,
+  gradCap = false,
+  starEyes = false,
   talk = 0,
   blink,
   frozen = false,
@@ -536,6 +561,33 @@ export const AliCharacter: React.FC<Props> = ({
               transform={`translate(0 ${(frame % 30) * 0.6 * e.sweat})`}
             />
           ) : null}
+          {starEyes
+            ? [-1, 1].map((side) => (
+                <path
+                  key={side}
+                  d="M 0 -26 L 8 -9 L 26 -8 L 12 4 L 17 23 L 0 12 L -17 23 L -12 4 L -26 -8 L -8 -9 Z"
+                  transform={`translate(${side * 38 + faceX} -505) scale(${0.9 * e.eyeScale})`}
+                  fill={COLORS.yellow}
+                  stroke={COLORS.ink}
+                  strokeWidth={3}
+                />
+              ))
+            : null}
+          {glasses > 0 ? (
+            <g transform={`translate(${faceX} -505)`}>
+              {[-1, 1].map((side) => (
+                <circle key={side} cx={side * 40 * Math.min(1.25, glasses)} cy={0} r={34 * glasses} fill="#DBEAFE" fillOpacity={0.28} stroke={COLORS.ink} strokeWidth={7} />
+              ))}
+              <path d={`M ${-40 * Math.min(1.25, glasses) + 34 * glasses - 4} -4 Q 0 -16 ${40 * Math.min(1.25, glasses) - 34 * glasses + 4} -4`} stroke={COLORS.ink} strokeWidth={6} fill="none" />
+              {[-1, 1].map((side) => (
+                <line key={`arm${side}`} x1={side * (40 * Math.min(1.25, glasses) + 34 * glasses)} y1={-6} x2={side * 100} y2={-14} stroke={COLORS.ink} strokeWidth={6} strokeLinecap="round" />
+              ))}
+              {[-1, 1].map((side) => (
+                <path key={`gl${side}`} d={`M ${side * 40 * Math.min(1.25, glasses) - 16 * glasses} ${-14 * glasses} q ${8 * glasses} ${-10 * glasses} ${20 * glasses} ${-8 * glasses}`} stroke={COLORS.white} strokeWidth={5} fill="none" strokeLinecap="round" opacity={0.9} />
+              ))}
+            </g>
+          ) : null}
+          {gradCap ? <GradCap y={-628} tilt={-8} /> : null}
           {headphones ? (
             <g>
               <path d="M -104 -500 Q -110 -650 0 -652 Q 110 -650 104 -500" stroke={COLORS.ink} strokeWidth={16} fill="none" strokeLinecap="round" />

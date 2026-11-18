@@ -1,0 +1,316 @@
+{
+ "episode": "ep05",
+ "title": "ALI VA IELTS WRITING: PROFESSOR BO‘LIB KETGAN ALI!",
+ "voices": {
+  "narrator": {
+   "engine": "elevenlabs",
+   "voice_id": "N3JyoAxu35CZFiDzoIoZ",
+   "name": "Ali narrator (Javohir clone)"
+  },
+  "ali": {
+   "engine": "elevenlabs",
+   "voice_id": "nXdUXfIGcAbTyJ2kC04t",
+   "name": "Abror - Casual (ElevenLabs library, Uzbek)"
+  },
+  "teacher": {
+   "engine": "elevenlabs",
+   "voice_id": "cfWx14ZbaEUT4BjIA5tH",
+   "name": "Mirjalol - Calm, Confident (ElevenLabs library, Uzbek)"
+  },
+  "influencer": {
+   "engine": "elevenlabs",
+   "voice_id": "fytsqG6MLzC2aCSw7MLa",
+   "name": "Asilbek - Ads (ElevenLabs library, Uzbek)"
+  },
+  "en": {
+   "engine": "piper",
+   "model": "en_GB-alan-medium"
+  }
+ },
+ "voice": {
+  "engine": "elevenlabs",
+  "note": "VoiceLab Javohir preferred; VoiceLab credits empty on 2026-11-18, so the ElevenLabs Javohir clone narrates"
+ },
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "hook",
+   "pre": 0.25
+  },
+  {
+   "id": "insta",
+   "pre": 0.2
+  },
+  {
+   "id": "overdose",
+   "pre": 0.15
+  },
+  {
+   "id": "essay",
+   "pre": 0.2
+  },
+  {
+   "id": "teacher",
+   "pre": 0.3
+  },
+  {
+   "id": "reality",
+   "pre": 0.3
+  },
+  {
+   "id": "lesson",
+   "pre": 0.25
+  },
+  {
+   "id": "ending",
+   "pre": 0.25
+  }
+ ],
+ "lines": [
+  {
+   "id": "l01",
+   "scene": "hook",
+   "voice": "narrator",
+   "text": "MANA BU ALI!",
+   "align": "mana bu ali",
+   "highlight": [
+    "ALI!"
+   ],
+   "gapAfter": 0.15
+  },
+  {
+   "id": "l02",
+   "scene": "hook",
+   "voice": "narrator",
+   "text": "Bu safar Ali Writing'dan sakkiz olmoqchi!",
+   "align": "bu safar ali rayting dan sakkiz olmoqchi",
+   "highlight": [
+    "sakkiz"
+   ],
+   "gapAfter": 0.45
+  },
+  {
+   "id": "l03",
+   "scene": "insta",
+   "voice": "narrator",
+   "text": "Instagramda bitta video ko‘rib qoldi:",
+   "align": "instagramda bitta video ko'rib qoldi",
+   "highlight": [
+    "Instagramda"
+   ],
+   "gapAfter": 0.25
+  },
+  {
+   "id": "i01",
+   "scene": "insta",
+   "voice": "influencer",
+   "text": "“Band 8 uchun mana shu so‘zlarni ishlating!”",
+   "align": "bend sakkiz uchun mana shu so'zlarni ishlating",
+   "highlight": [
+    "“Band",
+    "8"
+   ],
+   "gapAfter": 0.3,
+   "tts": "Band sakkiz uchun mana shu so‘zlarni ishlating!"
+  },
+  {
+   "id": "l04",
+   "scene": "insta",
+   "voice": "narrator",
+   "text": "Ali darrov hammasini yodlab oldi!",
+   "align": "ali darrov hammasini yodlab oldi",
+   "highlight": [
+    "yodlab"
+   ],
+   "gapAfter": 0.3
+  },
+  {
+   "id": "a01",
+   "scene": "overdose",
+   "voice": "ali",
+   "text": "Moreover... Furthermore... Notwithstanding...",
+   "align": "moreover furthermore notwithstanding",
+   "highlight": [
+    "Moreover...",
+    "Furthermore...",
+    "Notwithstanding..."
+   ],
+   "gapAfter": 0.3,
+   "lang": "en"
+  },
+  {
+   "id": "l05",
+   "scene": "overdose",
+   "voice": "narrator",
+   "text": "Endi Alini to‘xtatib bo‘lmaydi!",
+   "align": "endi alini to'xtatib bo'lmaydi",
+   "highlight": [
+    "to‘xtatib",
+    "bo‘lmaydi!"
+   ],
+   "gapAfter": 0.6
+  },
+  {
+   "id": "l06",
+   "scene": "essay",
+   "voice": "narrator",
+   "text": "Essay mavzusi: Kitob o‘qishning foydalari.",
+   "align": "esse mavzusi kitob o'qishning foydalari",
+   "highlight": [
+    "Kitob",
+    "foydalari."
+   ],
+   "gapAfter": 0.3
+  },
+  {
+   "id": "l07",
+   "scene": "essay",
+   "voice": "narrator",
+   "text": "Ali yozishni boshladi:",
+   "align": "ali yozishni boshladi",
+   "highlight": [],
+   "gapAfter": 0.3
+  },
+  {
+   "id": "e01",
+   "scene": "essay",
+   "voice": "en",
+   "text": "Reading books is an indispensable manifestation of intellectual sophistication.",
+   "align": "reading books is an indispensable manifestation of intellectual sophistication",
+   "highlight": [],
+   "gapAfter": 1.0,
+   "lang": "en"
+  },
+  {
+   "id": "l08",
+   "scene": "teacher",
+   "voice": "narrator",
+   "text": "Ustoz so‘radi:",
+   "align": "ustoz so'radi",
+   "highlight": [],
+   "gapAfter": 0.3
+  },
+  {
+   "id": "t01",
+   "scene": "teacher",
+   "voice": "teacher",
+   "text": "“Ali, nima demoqchisan?”",
+   "align": "ali nima demoqchisan",
+   "highlight": [
+    "demoqchisan?”"
+   ],
+   "gapAfter": 1.9,
+   "tts": "Ali, nima demoqchisan?"
+  },
+  {
+   "id": "a02",
+   "scene": "teacher",
+   "voice": "ali",
+   "text": "“Ustoz… o‘zim ham bilmayman!”",
+   "align": "ustoz o'zim ham bilmayman",
+   "highlight": [
+    "bilmayman!”"
+   ],
+   "gapAfter": 1.0,
+   "tts": "Ustoz... o‘zim ham bilmayman!",
+   "emphasis": "O‘ZIM HAM BILMAYMAN!"
+  },
+  {
+   "id": "l09",
+   "scene": "reality",
+   "voice": "narrator",
+   "text": "Bechora Ali! Kitob o‘qish foydali demoqchi edi, xolos!",
+   "align": "bechora ali kitob o'qish foydali demoqchi edi xolos",
+   "highlight": [
+    "foydali",
+    "xolos!"
+   ],
+   "gapAfter": 0.5
+  },
+  {
+   "id": "l10",
+   "scene": "lesson",
+   "voice": "narrator",
+   "text": "Ali, IELTS murakkab so‘zlar musobaqasi emas-ku!",
+   "align": "ali ayelts murakkab so'zlar musobaqasi emas ku",
+   "highlight": [
+    "musobaqasi",
+    "emas-ku!"
+   ],
+   "gapAfter": 0.3
+  },
+  {
+   "id": "l11",
+   "scene": "lesson",
+   "voice": "narrator",
+   "text": "Fikringni aniq ifodala, so‘zlarni esa o‘rinli ishlat!",
+   "align": "fikringni aniq ifodala so'zlarni esa o'rinli ishlat",
+   "highlight": [
+    "aniq",
+    "o‘rinli"
+   ],
+   "gapAfter": 0.35
+  },
+  {
+   "id": "l12",
+   "scene": "lesson",
+   "voice": "narrator",
+   "text": "Masalan:",
+   "align": "masalan",
+   "highlight": [],
+   "gapAfter": 0.25
+  },
+  {
+   "id": "e02",
+   "scene": "lesson",
+   "voice": "en",
+   "text": "Reading books helps people develop their knowledge and think critically.",
+   "align": "reading books helps people develop their knowledge and think critically",
+   "highlight": [
+    "develop",
+    "knowledge",
+    "think",
+    "critically."
+   ],
+   "gapAfter": 0.5,
+   "lang": "en"
+  },
+  {
+   "id": "l13",
+   "scene": "lesson",
+   "voice": "narrator",
+   "text": "Mana endi gapingning ma’nosi bor!",
+   "align": "mana endi gapingning ma'nosi bor",
+   "highlight": [
+    "ma’nosi",
+    "bor!"
+   ],
+   "gapAfter": 0.6
+  },
+  {
+   "id": "l14",
+   "scene": "ending",
+   "voice": "narrator",
+   "text": "Sening ham shunaqa professor do‘sting bormi?",
+   "align": "sening ham shunaqa professor do'sting bormi",
+   "highlight": [
+    "professor",
+    "do‘sting"
+   ],
+   "gapAfter": 0.5
+  },
+  {
+   "id": "a03",
+   "scene": "ending",
+   "voice": "ali",
+   "text": "Furthermore…",
+   "align": "furthermore",
+   "highlight": [
+    "Furthermore…"
+   ],
+   "gapAfter": 1.6,
+   "lang": "en",
+   "tts": "Furthermore..."
+  }
+ ]
+}
