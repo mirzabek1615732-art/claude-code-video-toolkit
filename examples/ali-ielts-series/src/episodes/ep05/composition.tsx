@@ -74,7 +74,7 @@ export const Ep05AliWriting: React.FC<Ep05Props> = ({stem}) => {
             </Sequence>
           ))}
         {/* designed on-screen text replaces captions for: the hook title, the English example sentences, the vocabulary pills, Ali's answer */}
-        <EpisodeSubtitles lines={EP05.lines} hideIds={['l01', 'e01', 'e02', 'a01', 'a02', 'a03']} top={subtitleTop} />
+        <EpisodeSubtitles lines={EP05.lines} hideIds={['l01', 'e01', 'e02', 'a01', 'a02', 'a03', 'l14']} top={subtitleTop} />
         {EP05.scenes.map((s) => {
           const t = TRANSITIONS[s.id];
           return t ? <SceneTransition key={`t-${s.id}`} at={s.from} kind={t.kind} color={t.color} color2={t.color2} half={6} /> : null;

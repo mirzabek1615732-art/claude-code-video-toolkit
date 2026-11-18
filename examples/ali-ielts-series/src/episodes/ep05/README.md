@@ -2,12 +2,12 @@
 
 1080×1920 · 30 fps · composition `Ep05AliWriting`, thumbnail still `Ep05Thumbnail` (`output/ep05_thumbnail.png`).
 
-## Status: animation, captions, thumbnail done — Uzbek voices NOT generated yet
-- VoiceLab (Javohir) still has no credits (2026-11-18: `insufficient_credits`).
-- The fallback, ElevenLabs, was in an outage while this was built (its status page: "Partial System Degradation";
-  the API timed out / returned 500 for 40+ minutes). Nothing was generated, nothing was charged.
-- Done: English example sentences e01, e02 (Piper `en_GB-alan-medium`, local, free).
-- So the video has NOT been rendered: the scenes run on estimated timing until the real voices exist.
+## Status: finished
+- Rendered `output/ep05_ali_writing.mp4` (64.5 s) and `output/ep05_thumbnail.png`.
+- VoiceLab (Javohir) had no credits, so all Uzbek lines are ElevenLabs `eleven_v4` (628 characters, generated
+  2026-11-18 after an ElevenLabs outage cleared). English examples e01/e02: Piper `en_GB-alan-medium`.
+- Mix (stems, `scripts/measure_mix.py`): speech −17.4 LUFS; music median 23 dB under speech; effects median 32 dB
+  under (min 20 dB). Master: −16.0 LUFS integrated, true peak −3.4 dBTP. Numbers only, not checked by listening.
 
 ## Voices (script.json "voices")
 | role | lines | voice |

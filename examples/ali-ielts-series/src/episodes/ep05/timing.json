@@ -2,278 +2,287 @@
  "lines": [
   {
    "id": "l01",
-   "file": null,
-   "duration": 1.02,
-   "placeholder": true,
+   "file": "ep05/vo/l01.wav",
+   "duration": 1.429,
+   "placeholder": false,
+   "alignScore": 0.918,
    "words": [
     {
      "text": "MANA",
-     "start": 0.1,
-     "end": 0.428
+     "start": 0.101,
+     "end": 0.362
     },
     {
      "text": "BU",
-     "start": 0.428,
-     "end": 0.592
+     "start": 0.725,
+     "end": 0.825
     },
     {
      "text": "ALI!",
-     "start": 0.592,
-     "end": 0.92
+     "start": 0.946,
+     "end": 1.168
     }
    ]
   },
   {
    "id": "l02",
-   "file": null,
-   "duration": 2.76,
-   "placeholder": true,
+   "file": "ep05/vo/l02.wav",
+   "duration": 2.578,
+   "placeholder": false,
+   "alignScore": 0.936,
    "words": [
     {
      "text": "Bu",
-     "start": 0.1,
-     "end": 0.242
+     "start": 0.081,
+     "end": 0.141
     },
     {
      "text": "safar",
-     "start": 0.242,
-     "end": 0.598
+     "start": 0.222,
+     "end": 0.564
     },
     {
      "text": "Ali",
-     "start": 0.598,
-     "end": 0.811
+     "start": 0.765,
+     "end": 0.927
     },
     {
      "text": "Writing'dan",
-     "start": 0.811,
-     "end": 1.593
+     "start": 1.027,
+     "end": 1.35
     },
     {
      "text": "sakkiz",
-     "start": 1.593,
-     "end": 2.02
+     "start": 1.37,
+     "end": 1.511
     },
     {
      "text": "olmoqchi!",
-     "start": 2.02,
-     "end": 2.66
+     "start": 1.611,
+     "end": 1.974
     }
    ]
   },
   {
    "id": "l03",
-   "file": null,
-   "duration": 2.52,
-   "placeholder": true,
+   "file": "ep05/vo/l03.wav",
+   "duration": 2.22,
+   "placeholder": false,
+   "alignScore": 0.961,
    "words": [
     {
      "text": "Instagramda",
-     "start": 0.1,
-     "end": 0.873
+     "start": 0.061,
+     "end": 0.626
     },
     {
      "text": "bitta",
-     "start": 0.873,
-     "end": 1.225
+     "start": 0.888,
+     "end": 1.191
     },
     {
      "text": "video",
-     "start": 1.225,
-     "end": 1.576
+     "start": 1.271,
+     "end": 1.514
     },
     {
      "text": "ko‘rib",
-     "start": 1.576,
-     "end": 1.998
+     "start": 1.574,
+     "end": 1.776
     },
     {
      "text": "qoldi:",
-     "start": 1.998,
-     "end": 2.42
+     "start": 1.816,
+     "end": 2.099
     }
    ]
   },
   {
    "id": "i01",
-   "file": null,
-   "duration": 2.94,
-   "placeholder": true,
+   "file": "ep05/vo/i01.wav",
+   "duration": 2.808,
+   "placeholder": false,
+   "alignScore": 0.828,
    "words": [
     {
      "text": "“Band",
-     "start": 0.1,
-     "end": 0.451
+     "start": 0.08,
+     "end": 0.321
     },
     {
      "text": "8",
-     "start": 0.451,
-     "end": 0.592
+     "start": 0.401,
+     "end": 0.782
     },
     {
      "text": "uchun",
-     "start": 0.592,
-     "end": 0.943
+     "start": 0.822,
+     "end": 1.123
     },
     {
      "text": "mana",
-     "start": 0.943,
-     "end": 1.224
+     "start": 1.364,
+     "end": 1.544
     },
     {
      "text": "shu",
-     "start": 1.224,
-     "end": 1.435
+     "start": 1.605,
+     "end": 1.685
     },
     {
      "text": "so‘zlarni",
-     "start": 1.435,
-     "end": 2.067
+     "start": 1.785,
+     "end": 2.246
     },
     {
      "text": "ishlating!”",
-     "start": 2.067,
-     "end": 2.84
+     "start": 2.307,
+     "end": 2.708
     }
    ]
   },
   {
    "id": "l04",
-   "file": null,
-   "duration": 2.28,
-   "placeholder": true,
+   "file": "ep05/vo/l04.wav",
+   "duration": 2.276,
+   "placeholder": false,
+   "alignScore": 0.872,
    "words": [
     {
      "text": "Ali",
-     "start": 0.1,
-     "end": 0.315
+     "start": 0.081,
+     "end": 0.242
     },
     {
      "text": "darrov",
-     "start": 0.315,
-     "end": 0.746
+     "start": 0.443,
+     "end": 0.826
     },
     {
      "text": "hammasini",
-     "start": 0.746,
-     "end": 1.391
+     "start": 0.947,
+     "end": 1.511
     },
     {
      "text": "yodlab",
-     "start": 1.391,
-     "end": 1.821
+     "start": 1.571,
+     "end": 1.893
     },
     {
      "text": "oldi!",
-     "start": 1.821,
-     "end": 2.18
+     "start": 1.954,
+     "end": 2.155
     }
    ]
   },
   {
    "id": "a01",
-   "file": null,
-   "duration": 3.0,
-   "placeholder": true,
+   "file": "ep05/vo/a01.wav",
+   "duration": 3.502,
+   "placeholder": false,
+   "alignScore": 0.946,
    "words": [
     {
      "text": "Moreover...",
-     "start": 0.1,
-     "end": 0.816
+     "start": 0.081,
+     "end": 0.664
     },
     {
      "text": "Furthermore...",
-     "start": 0.816,
-     "end": 1.728
+     "start": 1.248,
+     "end": 1.832
     },
     {
      "text": "Notwithstanding...",
-     "start": 1.728,
-     "end": 2.9
+     "start": 2.395,
+     "end": 3.281
     }
    ]
   },
   {
    "id": "l05",
-   "file": null,
-   "duration": 2.16,
-   "placeholder": true,
+   "file": "ep05/vo/l05.wav",
+   "duration": 2.144,
+   "placeholder": false,
+   "alignScore": 0.864,
    "words": [
     {
      "text": "Endi",
-     "start": 0.1,
-     "end": 0.38
+     "start": 0.101,
+     "end": 0.384
     },
     {
      "text": "Alini",
-     "start": 0.38,
-     "end": 0.73
+     "start": 0.708,
+     "end": 1.011
     },
     {
      "text": "to‘xtatib",
-     "start": 0.73,
-     "end": 1.36
+     "start": 1.052,
+     "end": 1.456
     },
     {
      "text": "bo‘lmaydi!",
-     "start": 1.36,
-     "end": 2.06
+     "start": 1.517,
+     "end": 2.002
     }
    ]
   },
   {
    "id": "l06",
-   "file": null,
-   "duration": 2.82,
-   "placeholder": true,
+   "file": "ep05/vo/l06.wav",
+   "duration": 2.912,
+   "placeholder": false,
+   "alignScore": 0.853,
    "words": [
     {
      "text": "Essay",
-     "start": 0.1,
-     "end": 0.445
+     "start": 0.06,
+     "end": 0.281
     },
     {
      "text": "mavzusi:",
-     "start": 0.445,
-     "end": 0.996
+     "start": 0.382,
+     "end": 0.843
     },
     {
      "text": "Kitob",
-     "start": 0.996,
-     "end": 1.341
+     "start": 1.466,
+     "end": 1.747
     },
     {
      "text": "o‘qishning",
-     "start": 1.341,
-     "end": 2.031
+     "start": 1.827,
+     "end": 2.209
     },
     {
      "text": "foydalari.",
-     "start": 2.031,
-     "end": 2.72
+     "start": 2.269,
+     "end": 2.791
     }
    ]
   },
   {
    "id": "l07",
-   "file": null,
-   "duration": 1.62,
-   "placeholder": true,
+   "file": "ep05/vo/l07.wav",
+   "duration": 1.455,
+   "placeholder": false,
+   "alignScore": 0.928,
    "words": [
     {
      "text": "Ali",
-     "start": 0.1,
-     "end": 0.313
+     "start": 0.061,
+     "end": 0.242
     },
     {
      "text": "yozishni",
-     "start": 0.313,
-     "end": 0.881
+     "start": 0.242,
+     "end": 0.909
     },
     {
      "text": "boshladi:",
-     "start": 0.881,
-     "end": 1.52
+     "start": 0.929,
+     "end": 1.334
     }
    ]
   },
@@ -333,212 +342,219 @@
   },
   {
    "id": "l08",
-   "file": null,
-   "duration": 1.14,
-   "placeholder": true,
+   "file": "ep05/vo/l08.wav",
+   "duration": 1.171,
+   "placeholder": false,
+   "alignScore": 0.775,
    "words": [
     {
      "text": "Ustoz",
-     "start": 0.1,
-     "end": 0.462
+     "start": 0.04,
+     "end": 0.404
     },
     {
      "text": "so‘radi:",
-     "start": 0.462,
-     "end": 1.04
+     "start": 0.444,
+     "end": 0.828
     }
    ]
   },
   {
    "id": "t01",
-   "file": null,
-   "duration": 1.74,
-   "placeholder": true,
+   "file": "ep05/vo/t01.wav",
+   "duration": 1.71,
+   "placeholder": false,
+   "alignScore": 0.683,
    "words": [
     {
      "text": "“Ali,",
-     "start": 0.1,
-     "end": 0.45
+     "start": 0.06,
+     "end": 0.262
     },
     {
      "text": "nima",
-     "start": 0.45,
-     "end": 0.73
+     "start": 0.765,
+     "end": 0.966
     },
     {
      "text": "demoqchisan?”",
-     "start": 0.73,
-     "end": 1.64
+     "start": 1.006,
+     "end": 1.63
     }
    ]
   },
   {
    "id": "a02",
-   "file": null,
-   "duration": 2.04,
-   "placeholder": true,
+   "file": "ep05/vo/a02.wav",
+   "duration": 2.439,
+   "placeholder": false,
+   "alignScore": 0.917,
    "words": [
     {
      "text": "“Ustoz…",
-     "start": 0.1,
-     "end": 0.595
+     "start": 0.06,
+     "end": 0.625
     },
     {
      "text": "o‘zim",
-     "start": 0.595,
-     "end": 0.949
+     "start": 1.391,
+     "end": 1.612
     },
     {
      "text": "ham",
-     "start": 0.949,
-     "end": 1.162
+     "start": 1.673,
+     "end": 1.834
     },
     {
      "text": "bilmayman!”",
-     "start": 1.162,
-     "end": 1.94
+     "start": 1.874,
+     "end": 2.358
     }
    ]
   },
   {
    "id": "l09",
-   "file": null,
-   "duration": 3.54,
-   "placeholder": true,
+   "file": "ep05/vo/l09.wav",
+   "duration": 3.669,
+   "placeholder": false,
+   "alignScore": 0.862,
    "words": [
     {
      "text": "Bechora",
      "start": 0.1,
-     "end": 0.597
+     "end": 0.501
     },
     {
      "text": "Ali!",
-     "start": 0.597,
-     "end": 0.882
+     "start": 0.622,
+     "end": 0.802
     },
     {
      "text": "Kitob",
-     "start": 0.882,
-     "end": 1.237
+     "start": 1.383,
+     "end": 1.644
     },
     {
      "text": "o‘qish",
-     "start": 1.237,
-     "end": 1.663
+     "start": 1.744,
+     "end": 2.005
     },
     {
      "text": "foydali",
-     "start": 1.663,
-     "end": 2.161
+     "start": 2.065,
+     "end": 2.446
     },
     {
      "text": "demoqchi",
-     "start": 2.161,
-     "end": 2.729
+     "start": 2.506,
+     "end": 2.867
     },
     {
      "text": "edi,",
-     "start": 2.729,
-     "end": 3.014
+     "start": 2.927,
+     "end": 3.028
     },
     {
      "text": "xolos!",
-     "start": 3.014,
-     "end": 3.44
+     "start": 3.068,
+     "end": 3.429
     }
    ]
   },
   {
    "id": "l10",
-   "file": null,
-   "duration": 3.12,
-   "placeholder": true,
+   "file": "ep05/vo/l10.wav",
+   "duration": 3.187,
+   "placeholder": false,
+   "alignScore": 0.877,
    "words": [
     {
      "text": "Ali,",
-     "start": 0.1,
-     "end": 0.378
+     "start": 0.08,
+     "end": 0.281
     },
     {
      "text": "IELTS",
-     "start": 0.378,
-     "end": 0.726
+     "start": 0.782,
+     "end": 1.082
     },
     {
      "text": "murakkab",
-     "start": 0.726,
-     "end": 1.282
+     "start": 1.163,
+     "end": 1.563
     },
     {
      "text": "so‘zlar",
-     "start": 1.282,
-     "end": 1.769
+     "start": 1.624,
+     "end": 1.944
     },
     {
      "text": "musobaqasi",
-     "start": 1.769,
-     "end": 2.464
+     "start": 1.984,
+     "end": 2.486
     },
     {
      "text": "emas-ku!",
-     "start": 2.464,
-     "end": 3.02
+     "start": 2.546,
+     "end": 2.947
     }
    ]
   },
   {
    "id": "l11",
-   "file": null,
-   "duration": 3.48,
-   "placeholder": true,
+   "file": "ep05/vo/l11.wav",
+   "duration": 3.719,
+   "placeholder": false,
+   "alignScore": 0.878,
    "words": [
     {
      "text": "Fikringni",
-     "start": 0.1,
-     "end": 0.728
+     "start": 0.04,
+     "end": 0.482
     },
     {
      "text": "aniq",
-     "start": 0.728,
-     "end": 1.007
+     "start": 0.683,
+     "end": 0.885
     },
     {
      "text": "ifodala,",
-     "start": 1.007,
-     "end": 1.566
+     "start": 0.965,
+     "end": 1.387
     },
     {
      "text": "so‘zlarni",
-     "start": 1.566,
-     "end": 2.194
+     "start": 1.849,
+     "end": 2.332
     },
     {
      "text": "esa",
-     "start": 2.194,
-     "end": 2.403
+     "start": 2.392,
+     "end": 2.553
     },
     {
      "text": "o‘rinli",
-     "start": 2.403,
-     "end": 2.891
+     "start": 2.915,
+     "end": 3.257
     },
     {
      "text": "ishlat!",
-     "start": 2.891,
-     "end": 3.38
+     "start": 3.317,
+     "end": 3.598
     }
    ]
   },
   {
    "id": "l12",
-   "file": null,
-   "duration": 0.78,
-   "placeholder": true,
+   "file": "ep05/vo/l12.wav",
+   "duration": 0.626,
+   "placeholder": false,
+   "alignScore": 0.882,
    "words": [
     {
      "text": "Masalan:",
-     "start": 0.1,
-     "end": 0.68
+     "start": 0.04,
+     "end": 0.444
     }
    ]
   },
@@ -603,85 +619,88 @@
   },
   {
    "id": "l13",
-   "file": null,
-   "duration": 2.28,
-   "placeholder": true,
+   "file": "ep05/vo/l13.wav",
+   "duration": 2.401,
+   "placeholder": false,
+   "alignScore": 0.96,
    "words": [
     {
      "text": "Mana",
-     "start": 0.1,
-     "end": 0.387
+     "start": 0.101,
+     "end": 0.303
     },
     {
      "text": "endi",
-     "start": 0.387,
-     "end": 0.674
+     "start": 0.403,
+     "end": 0.646
     },
     {
      "text": "gapingning",
-     "start": 0.674,
-     "end": 1.391
+     "start": 1.009,
+     "end": 1.533
     },
     {
      "text": "ma’nosi",
-     "start": 1.391,
-     "end": 1.893
+     "start": 1.594,
+     "end": 2.078
     },
     {
      "text": "bor!",
-     "start": 1.893,
-     "end": 2.18
+     "start": 2.098,
+     "end": 2.279
     }
    ]
   },
   {
    "id": "l14",
-   "file": null,
-   "duration": 2.94,
-   "placeholder": true,
+   "file": "ep05/vo/l14.wav",
+   "duration": 2.44,
+   "placeholder": false,
+   "alignScore": 0.939,
    "words": [
     {
      "text": "Sening",
-     "start": 0.1,
-     "end": 0.522
+     "start": 0.081,
+     "end": 0.343
     },
     {
      "text": "ham",
-     "start": 0.522,
-     "end": 0.732
+     "start": 0.403,
+     "end": 0.565
     },
     {
      "text": "shunaqa",
-     "start": 0.732,
-     "end": 1.224
+     "start": 0.625,
+     "end": 0.927
     },
     {
      "text": "professor",
-     "start": 1.224,
-     "end": 1.856
+     "start": 1.129,
+     "end": 1.613
     },
     {
      "text": "do‘sting",
-     "start": 1.856,
-     "end": 2.418
+     "start": 1.653,
+     "end": 2.016
     },
     {
      "text": "bormi?",
-     "start": 2.418,
-     "end": 2.84
+     "start": 2.057,
+     "end": 2.339
     }
    ]
   },
   {
    "id": "a03",
-   "file": null,
-   "duration": 1.02,
-   "placeholder": true,
+   "file": "ep05/vo/a03.wav",
+   "duration": 1.103,
+   "placeholder": false,
+   "alignScore": 0.864,
    "words": [
     {
      "text": "Furthermore…",
-     "start": 0.1,
-     "end": 0.92
+     "start": 0.061,
+     "end": 0.715
     }
    ]
   }
