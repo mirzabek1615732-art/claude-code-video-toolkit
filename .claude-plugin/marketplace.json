@@ -1,0 +1,16 @@
+{
+  "name": "claude-code-video-toolkit",
+  "owner": {
+    "name": "claude-code-video-toolkit"
+  },
+  "metadata": {
+    "description": "Claude Code plugins from claude-code-video-toolkit."
+  },
+  "plugins": [
+    {
+      "name": "instagram-insights",
+      "source": "./plugins/instagram-insights",
+      "description": "Analyze the videos and Reels on your Instagram account: insights, cuts, hook frames, and what your best posts have in common."
+    }
+  ]
+}
