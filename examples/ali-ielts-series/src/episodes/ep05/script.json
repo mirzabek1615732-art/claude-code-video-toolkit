@@ -225,7 +225,9 @@
     "foydali",
     "xolos!"
    ],
-   "gapAfter": 0.35
+   "gapAfter": 0.35,
+   "tts": "Be-chora Ali! Kitob o‘qish foydali demoqchi edi, xolos!",
+   "note": "spelled \"Be-chora\" for TTS: plain \"Bechora\" came out as \"Bekhora\""
   },
   {
    "id": "l10",

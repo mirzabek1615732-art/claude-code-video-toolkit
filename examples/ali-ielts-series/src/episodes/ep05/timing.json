@@ -415,49 +415,49 @@
   {
    "id": "l09",
    "file": "ep05/vo/l09.wav",
-   "duration": 3.669,
+   "duration": 3.555,
    "placeholder": false,
-   "alignScore": 0.862,
+   "alignScore": 0.845,
    "words": [
     {
      "text": "Bechora",
-     "start": 0.1,
-     "end": 0.501
+     "start": 0.121,
+     "end": 0.542
     },
     {
      "text": "Ali!",
-     "start": 0.622,
-     "end": 0.802
+     "start": 0.623,
+     "end": 0.803
     },
     {
      "text": "Kitob",
-     "start": 1.383,
-     "end": 1.644
+     "start": 1.386,
+     "end": 1.667
     },
     {
      "text": "o‘qish",
-     "start": 1.744,
-     "end": 2.005
+     "start": 1.747,
+     "end": 2.008
     },
     {
      "text": "foydali",
-     "start": 2.065,
-     "end": 2.446
+     "start": 2.049,
+     "end": 2.43
     },
     {
      "text": "demoqchi",
-     "start": 2.506,
-     "end": 2.867
+     "start": 2.49,
+     "end": 2.832
     },
     {
      "text": "edi,",
-     "start": 2.927,
-     "end": 3.028
+     "start": 2.872,
+     "end": 2.972
     },
     {
      "text": "xolos!",
-     "start": 3.068,
-     "end": 3.429
+     "start": 3.033,
+     "end": 3.374
     }
    ]
   },
